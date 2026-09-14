@@ -581,42 +581,59 @@ var BOOKING_URL = "https://calendly.com/michaelfadaous000/30min";
 function wireBooking() {
   if (!BOOKING_URL) return;
 
-  var embeds = !/(^|\.)claude\.ai$/.test(location.hostname) && location.protocol !== "file:";
   var els = document.querySelectorAll("[data-book]");
+  var box = document.getElementById("cal-inline");
 
-  for (var i = 0; i < els.length; i++) {
-    var el = els[i], plan = el.getAttribute("data-plan");
-    if (embeds) {
-      /* scheduler is on the page, so send them to it rather than off-site */
-      el.href = "#cal-inline";
-    } else {
-      var u = BOOKING_URL;
+  /* default everywhere: open the booking page in a new tab */
+  function linkMode() {
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i], u = BOOKING_URL, plan = el.getAttribute("data-plan");
       if (plan) u += (u.indexOf("?") > -1 ? "&" : "?") + "utm_source=site&utm_content=" + plan;
       el.href = u; el.target = "_blank"; el.rel = "noopener";
     }
   }
 
-  /* Calendly's widget script is blocked on claude.ai, so the buttons above open
-     a new tab there. On your own domain the scheduler embeds right in the page
-     and the visitor picks a slot without ever leaving. Nothing to switch on. */
-  if (!embeds) return;
+  /* only once the scheduler is really on the page: scroll to it instead */
+  function scrollMode() {
+    for (var i = 0; i < els.length; i++) {
+      els[i].href = "#cal-inline";
+      els[i].removeAttribute("target");
+      els[i].removeAttribute("rel");
+    }
+  }
 
-  var box = document.getElementById("cal-inline");
+  linkMode();
   if (!box) return;
-  var widget = document.createElement("div");
-  widget.className = "calendly-inline-widget";
-  widget.setAttribute("data-url", BOOKING_URL +
-    "?hide_gdpr_banner=1&hide_landing_page_details=1&primary_color=005E8C&utm_source=site&utm_content=inline");
-  box.querySelector(".calbody").appendChild(widget);
-  box.hidden = false;
+
+  /* Try to embed. Some hosts block Calendly's script, so the panel stays hidden
+     and the buttons keep opening a tab unless the widget actually loads. */
+  var done = false;
   var sc = document.createElement("script");
   sc.src = "https://assets.calendly.com/assets/external/widget.js";
   sc.async = true;
+
+  sc.onload = function () {
+    if (done || !window.Calendly || !Calendly.initInlineWidget) return;
+    done = true;
+    var host = box.querySelector(".calbody");
+    var widget = document.createElement("div");
+    widget.className = "calendly-inline-widget";
+    host.appendChild(widget);
+    Calendly.initInlineWidget({
+      url: BOOKING_URL + "?hide_gdpr_banner=1&primary_color=005E8C&utm_source=site&utm_content=inline",
+      parentElement: widget
+    });
+    box.hidden = false;
+    scrollMode();
+  };
+
+  sc.onerror = function () { done = true; };
   document.body.appendChild(sc);
+
+  /* belt and braces: if it has not initialised in 6s, stay in link mode */
+  setTimeout(function () { if (!done) { done = true; box.hidden = true; linkMode(); } }, 6000);
 }
 
-/* the sticky bar is markup that comes after this script, so wait for the
-   document before wiring anything up */
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", wireBooking);
 } else {
