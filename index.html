@@ -578,7 +578,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
    new tab. Left empty, they scroll to the contact section as they do now. */
 var BOOKING_URL = "https://calendly.com/michaelfadaous000/30min";
 
-(function () {
+function wireBooking() {
   if (!BOOKING_URL) return;
 
   var embeds = !/(^|\.)claude\.ai$/.test(location.hostname) && location.protocol !== "file:";
@@ -613,7 +613,15 @@ var BOOKING_URL = "https://calendly.com/michaelfadaous000/30min";
   sc.src = "https://assets.calendly.com/assets/external/widget.js";
   sc.async = true;
   document.body.appendChild(sc);
-})();
+}
+
+/* the sticky bar is markup that comes after this script, so wait for the
+   document before wiring anything up */
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", wireBooking);
+} else {
+  wireBooking();
+}
 </script>
 
 <div class="stickycta">
