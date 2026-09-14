@@ -10,12 +10,7 @@
 <meta property="og:description" content="I build the creator department inside your brand, train your team, and hand it over. 90 day money-back guarantee.">
 <meta property="og:image" content="michael.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<style>
-*{box-sizing:border-box}
-body{margin:0}
-img{max-width:100%}
-[hidden]{display:none!important}
-</style>
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Encore Malaysia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -270,9 +265,14 @@ details p{padding:0 0 20px;font-size:15.5px;max-width:62ch}
 /* contact */
 .contact{background:var(--tint);border:1px solid var(--line);border-radius:18px;padding:28px}
 @media (min-width:800px){.contact{padding:40px}}
-.calwrap{margin-top:24px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
-.calwrap .calendly-inline-widget{min-width:280px;height:680px}
-@media (min-width:700px){.calwrap .calendly-inline-widget{height:700px}}
+.calwrap{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  background:#fff;box-shadow:0 30px 60px -40px rgba(0,0,0,.5);scroll-margin-top:90px}
+.calhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:16px 20px;
+  background:#0D2A3A;color:#fff}
+.calhead b{font-size:16px;font-weight:600}
+.calhead span{font-size:12.5px;color:rgba(255,255,255,.7)}
+.calwrap .calendly-inline-widget{min-width:280px;height:700px}
+@media (min-width:700px){.calwrap .calendly-inline-widget{height:720px}}
 .ways{display:grid;gap:10px;margin-top:24px}
 @media (min-width:640px){.ways{grid-template-columns:1fr 1fr}}
 .way{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-decoration:none;display:block;transition:border-color .15s,box-shadow .15s,transform .15s}
@@ -546,7 +546,10 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
     <div class="eyebrow">Get in touch</div>
     <h2 style="margin-top:12px;max-width:24ch">Twenty minutes from a creator pipeline that costs you product, not fees.</h2>
     <p class="lead" style="max-width:52ch">Tell me what you sell and who buys it. You leave with the outreach angle that gets the right creators saying yes for product alone, and how their videos become ads that scale. Yours whether you hire me or not.</p>
-    <div id="cal-inline" class="calwrap" hidden></div>
+    <div id="cal-inline" class="calwrap" hidden>
+      <div class="calhead"><b>Pick a time</b><span>20 minutes &middot; Google Meet &middot; free</span></div>
+      <div class="calbody"></div>
+    </div>
 
     <div class="ways">
       <a class="way" href="#contact" data-book data-plan="contact">
@@ -577,24 +580,34 @@ var BOOKING_URL = "https://calendly.com/michaelfadaous000/30min";
 
 (function () {
   if (!BOOKING_URL) return;
+
+  var embeds = !/(^|\.)claude\.ai$/.test(location.hostname) && location.protocol !== "file:";
   var els = document.querySelectorAll("[data-book]");
+
   for (var i = 0; i < els.length; i++) {
-    var el = els[i], u = BOOKING_URL, plan = el.getAttribute("data-plan");
-    if (plan) u += (u.indexOf("?") > -1 ? "&" : "?") + "utm_source=site&utm_content=" + plan;
-    el.href = u; el.target = "_blank"; el.rel = "noopener";
+    var el = els[i], plan = el.getAttribute("data-plan");
+    if (embeds) {
+      /* scheduler is on the page, so send them to it rather than off-site */
+      el.href = "#cal-inline";
+    } else {
+      var u = BOOKING_URL;
+      if (plan) u += (u.indexOf("?") > -1 ? "&" : "?") + "utm_source=site&utm_content=" + plan;
+      el.href = u; el.target = "_blank"; el.rel = "noopener";
+    }
   }
 
   /* Calendly's widget script is blocked on claude.ai, so the buttons above open
      a new tab there. On your own domain the scheduler embeds right in the page
      and the visitor picks a slot without ever leaving. Nothing to switch on. */
-  if (/(^|\.)claude\.ai$/.test(location.hostname) || location.protocol === "file:") return;
+  if (!embeds) return;
 
   var box = document.getElementById("cal-inline");
   if (!box) return;
   var widget = document.createElement("div");
   widget.className = "calendly-inline-widget";
-  widget.setAttribute("data-url", BOOKING_URL + "?hide_gdpr_banner=1&utm_source=site&utm_content=inline");
-  box.appendChild(widget);
+  widget.setAttribute("data-url", BOOKING_URL +
+    "?hide_gdpr_banner=1&hide_landing_page_details=1&primary_color=005E8C&utm_source=site&utm_content=inline");
+  box.querySelector(".calbody").appendChild(widget);
   box.hidden = false;
   var sc = document.createElement("script");
   sc.src = "https://assets.calendly.com/assets/external/widget.js";
