@@ -276,6 +276,12 @@ details p{padding:0 0 20px;font-size:15.5px;max-width:62ch}
 @media (min-width:800px){.contact{padding:40px}}
 .calwrap{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;
   background:#fff;box-shadow:0 30px 60px -40px rgba(0,0,0,.5);scroll-margin-top:90px}
+/* Calendly needs 280px minimum, so on small screens let the panel break out of
+   the card padding instead of being clipped */
+@media (max-width:560px){
+  .contact{padding:20px}
+  .calwrap{margin-left:-20px;margin-right:-20px;border-radius:12px}
+}
 .calhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:16px 20px;
   background:#0D2A3A;color:#fff}
 .calhead b{font-size:16px;font-weight:600}
