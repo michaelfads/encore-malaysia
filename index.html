@@ -234,6 +234,13 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .figs .ph{color:var(--ink-3)}
 
 /* plans */
+.ladder{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px;max-width:62ch}
+.ladder li{display:flex;gap:13px;align-items:flex-start;background:var(--bg);
+  border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:border-color .2s}
+.ladder li:hover{border-color:var(--ink-3)}
+.ladder .e{font-size:19px;line-height:1.35;flex:0 0 auto}
+.ladder .t{font-size:15px;color:var(--ink-2);line-height:1.5}
+.ladder b{color:var(--ink);font-weight:600}
 .plans{display:grid;gap:12px;margin-top:30px}
 @media (min-width:860px){.plans{grid-template-columns:repeat(3,1fr);align-items:stretch}}
 .plan{border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;background:var(--bg)}
@@ -476,7 +483,12 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
   <div class="wrap">
     <div class="eyebrow">An investment, not a cost</div>
     <h2 style="margin-top:12px;max-width:22ch">Every one of these ends with a department you own.</h2>
-    <p class="lead" style="max-width:58ch">They differ in how far I go with you. Blueprint hands you the system. Engine builds it into your business and switches it on. Department runs it beside your manager until your team can do it alone.</p>
+    <p class="lead" style="max-width:52ch">They differ in one thing only: how far I go with you.</p>
+    <ul class="ladder">
+      <li><span class="e">&#128293;</span><span class="t"><b>Blueprint</b> hands you the system, documented and ready to run.</span></li>
+      <li><span class="e">&#128176;</span><span class="t"><b>Engine</b> builds it into your business and switches it on.</span></li>
+      <li><span class="e">&#128081;</span><span class="t"><b>Department</b> runs it beside your manager until your team can do it alone.</span></li>
+    </ul>
     <div class="plans">
       <div class="plan">
         <h3>&#128293; Blueprint</h3>
