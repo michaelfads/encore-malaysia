@@ -306,6 +306,19 @@ details p{padding:0 0 20px;font-size:15.5px;max-width:62ch}
 @media (min-width:640px){.ways{grid-template-columns:1fr 1fr}}
 .way{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-decoration:none;display:block;transition:border-color .15s,box-shadow .15s,transform .15s}
 .way:hover{border-color:var(--accent);box-shadow:0 14px 28px -22px var(--accent);transform:translateY(-2px)}
+
+/* the booking card is the primary action here, not a third contact detail */
+.ways .way[data-book]{background:var(--accent);border-color:var(--accent);
+  padding:20px 52px 20px 22px;position:relative;
+  box-shadow:0 16px 32px -18px var(--accent)}
+.ways .way[data-book] b{color:rgba(255,255,255,.72)}
+.ways .way[data-book] span{color:#fff;font-size:17px;font-weight:600}
+.ways .way[data-book]::after{content:"";position:absolute;right:22px;top:50%;width:9px;height:9px;
+  border-right:2.5px solid #fff;border-top:2.5px solid #fff;
+  transform:translateY(-50%) rotate(45deg);transition:transform .18s}
+.ways .way[data-book]:hover{border-color:var(--accent);box-shadow:0 22px 40px -18px var(--accent)}
+.ways .way[data-book]:hover::after{transform:translateY(-50%) translateX(4px) rotate(45deg)}
+@media (min-width:640px){.ways .way[data-book]{grid-column:1 / -1}}
 .way b{display:block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
 .way span{display:block;margin-top:6px;color:var(--ink);font-weight:600;font-size:15.5px;word-break:break-word}
 .ph{color:var(--ink-3);font-weight:500}
