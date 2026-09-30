@@ -104,15 +104,13 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .nav .btn{padding:10px 16px;font-size:14px}
 
 /* hero */
-.hero{display:grid;gap:24px;align-items:center}
-@media (min-width:860px){.hero{grid-template-columns:1.15fr .85fr;gap:48px}}
-.hero-photo{border-radius:14px;overflow:hidden;background:var(--tint);width:100%;height:240px}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
-@media (min-width:560px){.hero-photo{height:300px}}
-@media (min-width:860px){
-  .hero-photo{height:auto;aspect-ratio:4/5;max-height:460px;border-radius:16px}
-  .hero-photo img{object-position:center 28%}
-}
+.hero{display:block}
+.hero .lead{margin-top:22px;max-width:60ch}
+.hero-photo{margin-top:26px;border-radius:16px;overflow:hidden;background:var(--tint);
+  width:100%;height:230px;box-shadow:0 26px 54px -38px rgba(0,0,0,.55)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+@media (min-width:640px){.hero-photo{height:320px;border-radius:18px}}
+@media (min-width:960px){.hero-photo{height:400px}}
 
 /* figures */
 .figs{display:grid;gap:12px;margin-top:4px}
@@ -180,6 +178,11 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .dash-foot{padding:12px 18px;font-size:12.5px;color:var(--ink-3);background:var(--tint);border-top:1px solid var(--line)}
 
 /* proof */
+.ownline{margin-top:14px;font-size:16px;color:var(--ink);line-height:1.55;max-width:60ch;
+  border-left:3px solid var(--accent);padding-left:16px}
+@media (min-width:800px){.ownline{font-size:17px}}
+.big-h{font-size:32px;letter-spacing:-.03em;line-height:1.05}
+@media (min-width:800px){.big-h{font-size:52px}}
 .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
 @media (min-width:640px){.metrics{grid-template-columns:repeat(3,1fr);gap:12px}}
 .metrics > div{background:var(--bg);border:1px solid var(--line);border-radius:14px;
@@ -239,7 +242,8 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .ladder li{display:flex;gap:13px;align-items:flex-start;background:var(--bg);
   border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:border-color .2s}
 .ladder li:hover{border-color:var(--ink-3)}
-.ladder .e{font-size:19px;line-height:1.35;flex:0 0 auto}
+.ladder .e{flex:0 0 auto;display:grid;place-items:center;width:26px;height:26px;border-radius:8px;
+  background:var(--accent-bg);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.03em}
 .ladder .t{font-size:15px;color:var(--ink-2);line-height:1.5}
 .ladder b{color:var(--ink);font-weight:600}
 .plans{display:grid;gap:12px;margin-top:30px}
@@ -349,17 +353,17 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
 <!-- 1. INTRODUCTION -->
 <header id="top" class="wrap sec"><div class="glow"></div>
   <div class="hero">
-    <div>
-      <div class="eyebrow">Michael Fadaous &middot; I do systems for a living</div>
-      <h1 style="margin-top:14px">Influencer marketing that <span class="mark">keeps selling</span> after I leave.</h1>
-      <p class="lead">Over $100,000 generated through the influencer system I built. I install it inside your brand, train your team, and hand it over.</p>
-      <div class="btns">
-        <a class="btn" href="#contact" data-book data-plan="hero">Book my free call</a>
-        <a class="btn ghost" href="#plans">See the plans</a>
-      </div>
-    </div>
+    <div class="eyebrow">Michael Fadaous &middot; I do systems for a living</div>
+    <h1 style="margin-top:14px">Influencer marketing that <span class="mark">keeps selling</span> after I leave.</h1>
+
     <div class="hero-photo">
       <img src="michael.jpg" alt="Michael Fadaous, founder of TAPE IT">
+    </div>
+
+    <p class="lead">Over $100,000 generated through this system, from a single brand. I install it inside yours, train your team, and hand it over.</p>
+    <div class="btns">
+      <a class="btn" href="#contact" data-book data-plan="hero">Book my free call</a>
+      <a class="btn ghost" href="#plans">See the plans</a>
     </div>
   </div>
 </header>
@@ -369,7 +373,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
   <div class="figs">
     <div>
       <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></span>
-      <div class="v">$100K+</div><div class="k">Generated through this influencer system</div>
+      <div class="v">$100K+</div><div class="k">Generated for one brand through this system</div>
     </div>
     <div>
       <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg></span>
@@ -442,20 +446,21 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
 <section class="sec proofsec">
   <div class="wrap">
     <div class="eyebrow">Success stories</div>
-    <h2 style="margin-top:12px;max-width:22ch">From guesswork to a machine that prints.</h2>
+    <h2 class="big-h" style="margin-top:12px;max-width:20ch">From guesswork to a machine that prints.</h2>
     <div class="shots">
       <figure>
         <span class="src">Meta Ads Manager</span>
         <div class="shotstat"><b>$7,957</b><span>tracked revenue in 30 days</span></div>
-        <figcaption>1&ndash;30 April 2026. Sixteen creator videos running as ads in a single month.</figcaption>
+        <p class="ownline">These are my own numbers, from my own brand. One month, sixteen creator videos, every one of them sourced, briefed and tracked with the exact system I install for you.</p>
+        <figcaption>TAPE IT &middot; 1&ndash;30 April 2026 &middot; Meta Ads Manager export</figcaption>
 
         <div class="metrics">
-          <div class="key"><div class="m">Return on ad spend</div><div class="n">3.08&times;<small>blended across all 16</small></div></div>
-          <div><div class="m">Ad spend</div><div class="n">$2,580<small>returned $7,957</small></div></div>
-          <div><div class="m">Purchases</div><div class="n">260<small>$9.92 to acquire each</small></div></div>
-          <div><div class="m">Average order</div><div class="n">$30.60<small>3x the cost to win it</small></div></div>
+          <div class="key"><div class="m">Return on ad spend</div><div class="n">3.08&times;<small>every $1 in returned $3.08</small></div></div>
+          <div><div class="m">Ad spend</div><div class="n">$2,580<small>turned into $7,957</small></div></div>
+          <div><div class="m">Purchases</div><div class="n">260<small>at $9.92 each</small></div></div>
+          <div><div class="m">Average order</div><div class="n">$30.60<small>3x what it cost to win</small></div></div>
           <div><div class="m">Click-through rate</div><div class="n">0.61%<small>7,879 clicks at $0.33</small></div></div>
-          <div><div class="m">Best single creator</div><div class="n">5.10&times;<small>$69 spend, $353 back</small></div></div>
+          <div><div class="m">Best performing creator</div><div class="n">5.10&times;<small>$69 spend returned $353</small></div></div>
         </div>
         <div class="frame"><img src="proof-ads-april.jpg" alt="Meta Ads Manager ad-level view for 1 to 30 April 2026, 16 creator ads totalling $7,957.24 in purchase conversion value"></div>
       </figure>
@@ -500,13 +505,13 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
     <h2 style="margin-top:12px;max-width:22ch">Every one of these ends with a department you own.</h2>
     <p class="lead" style="max-width:52ch">They differ in one thing only: how far I go with you.</p>
     <ul class="ladder">
-      <li><span class="e">&#128293;</span><span class="t"><b>Blueprint</b> hands you the system, documented and ready to run.</span></li>
-      <li><span class="e">&#128176;</span><span class="t"><b>Engine</b> builds it into your business and switches it on.</span></li>
-      <li><span class="e">&#128081;</span><span class="t"><b>Department</b> runs it beside your manager until your team can do it alone.</span></li>
+      <li><span class="e">01</span><span class="t"><b>Blueprint</b> hands you the system, documented and ready to run.</span></li>
+      <li><span class="e">02</span><span class="t"><b>Engine</b> builds it into your business and switches it on.</span></li>
+      <li><span class="e">03</span><span class="t"><b>Department</b> runs it beside your manager until your team can do it alone.</span></li>
     </ul>
     <div class="plans">
       <div class="plan">
-        <h3>&#128293; Blueprint</h3>
+        <h3>Blueprint</h3>
         <div class="price"><s>RM 6,000</s>RM 4,800 <span class="save">20% off</span></div>
         <p class="who">You have someone in-house who needs the method.</p>
         <ul>
@@ -522,7 +527,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
       </div>
       <div class="plan best">
         <div class="tag">Most brands start here</div>
-        <h3>&#128176; Engine</h3>
+        <h3>Engine</h3>
         <div class="price"><s>RM 12,571</s>RM 8,800 <span class="save">30% off</span></div>
         <p class="who">You have someone ready to own it.</p>
         <ul>
@@ -538,7 +543,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
         <a class="btn" href="#contact" data-book data-plan="engine">Start with Engine</a>
       </div>
       <div class="plan">
-        <h3>&#128081; Department</h3>
+        <h3>Department</h3>
         <div class="price"><s>RM 38,000</s>RM 22,800 <span class="save">40% off</span></div>
         <p class="who">Budget, and a person to build the department around.</p>
         <ul>
