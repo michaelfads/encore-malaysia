@@ -182,8 +182,10 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .ownline{margin-top:14px;font-size:16px;color:var(--ink);line-height:1.55;max-width:60ch;
   border-left:3px solid var(--accent);padding-left:16px}
 @media (min-width:800px){.ownline{font-size:17px}}
-.big-h{font-size:32px;letter-spacing:-.03em;line-height:1.05}
-@media (min-width:800px){.big-h{font-size:52px}}
+.big-h{font-size:40px;letter-spacing:-.04em;line-height:1;position:relative;display:inline-block}
+.big-h::after{content:"";display:block;height:4px;width:62px;margin-top:14px;border-radius:2px;
+  background:var(--accent)}
+@media (min-width:800px){.big-h{font-size:64px}.big-h::after{width:84px;height:5px}}
 .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
 @media (min-width:640px){.metrics{grid-template-columns:repeat(3,1fr);gap:12px}}
 .metrics > div{background:var(--bg);border:1px solid var(--line);border-radius:14px;
@@ -451,8 +453,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
 <!-- proof -->
 <section class="sec proofsec">
   <div class="wrap">
-    <div class="eyebrow">Success stories</div>
-    <h2 class="big-h" style="margin-top:12px;max-width:16ch">$7,957 in one month. Here are the receipts.</h2>
+    <h2 class="big-h">Success stories</h2>
     <div class="shots">
       <figure>
         <span class="src">Meta Ads Manager</span>
