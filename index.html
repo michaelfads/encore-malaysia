@@ -340,19 +340,6 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .plan li b{color:var(--accent);font-weight:700}
 .plan .btn{margin-top:auto;width:100%}
 
-/* guarantee */
-.guar{background:var(--guar);color:rgba(255,255,255,.88);border-radius:20px;padding:36px 26px;text-align:center;
-  background-image:radial-gradient(120% 130% at 50% 0%,rgba(255,255,255,.18),transparent 60%);
-  box-shadow:0 22px 48px -28px var(--guar)}
-@media (min-width:800px){.guar{padding:60px 48px}}
-.guar .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);color:#fff;
-  border-radius:99px;padding:8px 16px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.guar .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
-.guar h2{color:#fff;margin:20px auto 0;max-width:20ch;font-size:28px}
-@media (min-width:800px){.guar h2{font-size:44px;line-height:1.1}}
-.guar p{margin:16px auto 0;font-size:16px;max-width:56ch}
-.guar .fine{margin-top:22px;font-size:13.5px;color:rgba(255,255,255,.66)}
-
 /* faq */
 details{border-bottom:1px solid var(--line)}
 details:first-of-type{border-top:1px solid var(--line)}
@@ -411,7 +398,8 @@ details p{padding:0 0 20px;font-size:15.5px;max-width:62ch}
 body{padding-bottom:80px}
 @media (min-width:820px){body{padding-bottom:0}}
 
-footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;color:var(--ink-3)}
+footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;color:var(--ink-3)}
+@media (min-width:820px){footer{padding-bottom:40px}}
 .foot{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -459,7 +447,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
     </div>
     <div class="hi">
       <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span>
-      <div class="v">30 days</div><div class="k">Make your money back, or I refund it</div>
+      <div class="v">10 days</div><div class="k">Installed, your team trained, then it is <b>yours</b></div>
     </div>
   </div>
 </div>
@@ -626,17 +614,10 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
   </div>
 </section>
 
-<!-- guarantee -->
+<!-- the math -->
 <div class="wrap sec">
-  <div class="guar">
-    <span class="badge">90 day guarantee</span>
-    <h2>Your money back in full.</h2>
-    <p>If this hasn't generated at least what you paid for it within 90 days of handover, I refund you in full.</p>
-    <p class="fine">Two conditions, both yours to control and both set up with you before I leave: you onboard at least ten creators through the pipeline in those 90 days, and the tracking codes stay live.</p>
-  </div>
-
-  <div class="c br" style="margin-top:14px">
-    <h4>What ten creators has to do</h4>
+  <div class="c br">
+    <h4>What ten creators does to your numbers</h4>
     <p>At an average order of RM 145, ten creators averaging eight orders each over 90 days brings in RM 11,600. More than the fee, before a single repeat purchase. We work your exact number out on the call, before you pay anything.</p>
   </div>
 </div>
