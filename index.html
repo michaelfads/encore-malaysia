@@ -203,7 +203,8 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
   background:var(--accent)}
 @media (min-width:800px){.big-h{font-size:64px}.big-h::after{width:84px;height:5px}}
 .metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
-@media (min-width:640px){.metrics{grid-template-columns:repeat(3,1fr);gap:12px}}
+/* four metrics: 2x2 on phones, one clean row on desktop (3 columns orphaned the last tile) */
+@media (min-width:860px){.metrics{grid-template-columns:repeat(4,1fr);gap:12px}}
 .metrics > div{background:var(--bg);border:1px solid var(--line);border-radius:14px;
   padding:16px 16px 15px;transition:border-color .2s}
 .metrics > div:hover{border-color:var(--ink-3)}
@@ -211,7 +212,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
   color:var(--ink-3);line-height:1.4}
 .metrics .n{margin-top:10px;font-size:24px;font-weight:700;color:var(--ink);
   letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
-@media (min-width:640px){.metrics .n{font-size:26px}}
+@media (min-width:860px){.metrics .n{font-size:25px}}
 .metrics .n small{display:block;margin-top:7px;font-size:12px;font-weight:400;
   color:var(--ink-3);letter-spacing:0;line-height:1.4}
 .metrics > .key{background:var(--accent-bg);border-color:color-mix(in srgb,var(--accent) 38%,transparent)}
