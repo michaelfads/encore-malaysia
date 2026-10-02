@@ -182,8 +182,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .dash-foot{padding:12px 18px;font-size:12.5px;color:var(--ink-3);background:var(--tint);border-top:1px solid var(--line)}
 
 /* proof */
-.anchor{margin-top:16px;font-size:14.5px;color:var(--ink-2);line-height:1.55;max-width:62ch;
-  background:var(--tint);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+
 .ownline{margin-top:14px;font-size:16px;color:var(--ink);line-height:1.55;max-width:62ch;
   border-left:3px solid var(--accent);padding-left:16px}
 .ownline b{font-weight:700}
@@ -254,15 +253,15 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .rhead .t{font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.015em}
 .rhead .rsub{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
 
-.rl{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:start;
-  padding:13px 20px 13px 40px;position:relative;border-bottom:1px solid var(--line)}
+.rl{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:baseline;
+  padding:11px 20px 11px 40px;position:relative;border-bottom:1px solid var(--line)}
 @media (min-width:700px){.rl{padding-left:44px;padding-right:24px}}
-.rl::before{content:"";position:absolute;left:22px;top:19px;width:6px;height:6px;border-radius:50%;
+.rl::before{content:"";position:absolute;left:22px;top:16px;width:6px;height:6px;border-radius:50%;
   background:var(--accent);opacity:.55}
 @media (min-width:700px){.rl::before{left:24px}}
 .rl .n{font-size:15px;line-height:1.5;color:var(--ink-2)}
-.rl .n b{display:block;color:var(--ink);font-weight:600;font-size:15.5px;letter-spacing:-.01em}
-.rl .n i{font-style:normal;display:block;margin-top:2px;font-size:14px;color:var(--ink-3);line-height:1.45}
+.rl .n b{color:var(--ink);font-weight:500;font-size:15px;letter-spacing:-.01em}
+
 .rl .v{font-size:15px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;
   white-space:nowrap;text-align:right;padding-top:1px}
 .rl .v::before{content:"RM ";font-size:12px;font-weight:500;color:var(--ink-3)}
@@ -421,7 +420,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
 <body>
 <nav class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top"><i></i>Michael Fadaous</a>
+    <a class="brand" href="#top">Michael Fadaous</a>
     <a class="btn" href="#contact" data-book data-plan="nav">Book a call</a>
   </div>
 </nav>
@@ -470,7 +469,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
   <div class="wrap">
     <div class="eyebrow">What changes</div>
     <h2 style="margin-top:12px;max-width:24ch">Creators are not the campaign. They are the creative.</h2>
-    <p class="lead" style="max-width:52ch">The money comes from the system behind them. This is the one I built, ran, and still use.</p>
+    <p class="lead" style="max-width:52ch">The money comes from the system behind them.</p>
     <div class="cards">
       <div class="card">
         <div class="n">1</div>
@@ -503,8 +502,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
       <div>
         <div class="eyebrow">Why I built this</div>
         <h2 style="margin-top:12px;max-width:20ch">I built it for my own brand. Then for others.</h2>
-        <p style="margin-top:16px">Creators used to be a guess. I turned it into a system, and it has run ever since.</p>
-        <p>Now I install that same system inside other brands and teach the team to run it exactly the way I do.</p>
+        <p style="margin-top:16px">Creators used to be a guess. I turned it into a system, and it has run ever since. Now I install that same system inside other brands and teach the team to run it.</p>
         <p class="pullq">I do not hand you theory. I hand you the system I use myself.</p>
       </div>
 
@@ -526,19 +524,19 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
       <figure>
         <span class="src">Meta Ads Manager</span>
         <div class="shotstat"><b>$7,957</b><span>tracked revenue in 30 days</span></div>
-        <p class="ownline">The $100,000 above is what this system has produced for TAPE IT over time. What follows is <b>one ordinary month inside it</b>, exported straight from the account, so you can see how it runs rather than take the headline on trust.</p>
+        <p class="ownline">The $100,000 above is what this system has produced for TAPE IT over time. Below is <b>one ordinary month inside it</b>, exported straight from the account.</p>
         <figcaption>TAPE IT &middot; 1&ndash;30 April 2026 &middot; Meta Ads Manager export</figcaption>
 
         <div class="metrics">
           <div class="key"><div class="m">Return on ad spend</div><div class="n">3.08&times;<small>every $1 in returned $3.08</small></div></div>
           <div><div class="m">Ad spend</div><div class="n">$2,580<small>turned into $7,957</small></div></div>
           <div><div class="m">Purchases</div><div class="n">260<small>at $9.92 each</small></div></div>
-          <div><div class="m">Average order</div><div class="n">$30.60<small>3x what it cost to win</small></div></div>
-          <div><div class="m">Click-through rate</div><div class="n">0.61%<small>7,879 clicks at $0.33</small></div></div>
+          
+          
           <div><div class="m">Best performing creator</div><div class="n">5.10&times;<small>$69 spend returned $353</small></div></div>
         </div>
 
-        <p class="anchor">A brand on 50&ndash;65% gross margin breaks even somewhere between 2.0&times; and 1.5&times;. Every campaign below was scaled or killed against that number, not against a feeling.</p>
+        
 
         <div class="frame"><img src="proof-ads-april.jpg" alt="Meta Ads Manager ad-level view for 1 to 30 April 2026, 16 creator ads totalling $7,957.24 in purchase conversion value"></div>
       </figure>
@@ -572,7 +570,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
       <span>Marketing agencies</span>
       <span>Retail &amp; local chains</span>
     </div>
-    <p class="qual">You need three things: a product people already buy, margin you can share with a creator, and one person who will own this after I leave. That's it.</p>
+    <p class="qual">You need three things: a product people already buy, margin to share with a creator, and one person to own this after I leave.</p>
   </div>
 </section>
 
@@ -587,31 +585,31 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
       <div class="rhead"><span class="t">The install</span><span class="rsub">Built in your accounts, in your name</span></div>
 
       <div class="rl grp"><span class="n">The method &mdash; seven procedures</span><span class="v"></span></div>
-      <div class="rl"><span class="n"><b>The Rulebook</b><i>Your operating model, lifecycle and daily rhythm</i></span><span class="v">980</span></div>
-      <div class="rl"><span class="n"><b>Creator acquisition + scorecard</b><i>Where your creators are, and who to skip</i></span><span class="v">1,280</span></div>
-      <div class="rl"><span class="n"><b>Outreach &amp; follow-up scripts</b><i>English and Bahasa, every angle</i></span><span class="v">1,880</span></div>
-      <div class="rl"><span class="n"><b>Negotiation &amp; deal closing</b><i>Every objection, with the reply</i></span><span class="v">1,280</span></div>
-      <div class="rl"><span class="n"><b>Commission structure</b><i>Your rate, calculated from your own margin</i></span><span class="v">980</span></div>
-      <div class="rl"><span class="n"><b>Post-deal execution</b><i>Through to a locked posting date, never "soon"</i></span><span class="v">980</span></div>
-      <div class="rl"><span class="n"><b>Consistency &amp; re-engagement</b><i>The 2nd, 3rd and 4th post</i></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>The Rulebook</b></span><span class="v">980</span></div>
+      <div class="rl"><span class="n"><b>Creator acquisition + scorecard</b></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Outreach &amp; follow-up scripts</b></span><span class="v">1,880</span></div>
+      <div class="rl"><span class="n"><b>Negotiation &amp; deal closing</b></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Commission structure</b></span><span class="v">980</span></div>
+      <div class="rl"><span class="n"><b>Post-deal execution</b></span><span class="v">980</span></div>
+      <div class="rl"><span class="n"><b>Consistency &amp; re-engagement</b></span><span class="v">1,280</span></div>
 
       <div class="rl grp"><span class="n">Where the work happens</span><span class="v"></span></div>
-      <div class="rl"><span class="n"><b>Trello board</b><i>Built in your workspace with automation live</i></span><span class="v">1,280</span></div>
-      <div class="rl"><span class="n"><b>Drive setup</b><i>With automations &mdash; your content, owned and findable</i></span><span class="v">780</span></div>
-      <div class="rl"><span class="n"><b>Creator Lock Survey</b><i>The brief locks before anything ships</i></span><span class="v">980</span></div>
+      <div class="rl"><span class="n"><b>Trello board</b></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Drive setup</b></span><span class="v">780</span></div>
+      <div class="rl"><span class="n"><b>Creator Lock Survey</b></span><span class="v">980</span></div>
 
       <div class="rl grp"><span class="n">Knowing what works</span><span class="v"></span></div>
-      <div class="rl"><span class="n"><b>Per-creator tracking</b><i>A code and a link each, earnings tracked</i></span><span class="v">1,680</span></div>
-      <div class="rl"><span class="n"><b>Weekly 7-day report</b><i>The method is yours; the portal generates it for you</i></span><span class="v">880</span></div>
-      <div class="rl"><span class="n"><b>Winning creative replication</b><i>What sells, turned into a repeatable brief</i></span><span class="v">1,280</span></div>
-      <div class="rl"><span class="n"><b>Ads decision engine</b><i>Scale, keep, fix or kill, with the budget numbers</i></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Per-creator tracking</b></span><span class="v">1,680</span></div>
+      <div class="rl"><span class="n"><b>Weekly 7-day report</b></span><span class="v">880</span></div>
+      <div class="rl"><span class="n"><b>Winning creative replication</b></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Ads decision engine</b></span><span class="v">1,280</span></div>
 
       <div class="rl grp"><span class="n">Growing it</span><span class="v"></span></div>
-      <div class="rl"><span class="n"><b>Event strategy per moment</b><i>Black Friday, 11.11, Raya, CNY</i></span><span class="v">1,280</span></div>
-      <div class="rl"><span class="n"><b>Quarterly scaling plan</b><i>What to add, and in what order</i></span><span class="v">1,880</span></div>
+      <div class="rl"><span class="n"><b>Event strategy per moment</b></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Quarterly scaling plan</b></span><span class="v">1,880</span></div>
 
       <div class="rl grp"><span class="n">Your people</span><span class="v"></span></div>
-      <div class="rl"><span class="n"><b>4 training sessions (8 hours)</b><i>+ a recorded handover you keep</i></span><span class="v">3,520</span></div>
+      <div class="rl"><span class="n"><b>4 training sessions (8 hours)</b></span><span class="v">3,520</span></div>
       <div class="rl free"><span class="n"><b>Creator Hub</b> &mdash; your own portal, configured for your business, free for months 1&ndash;3</span><span class="v">684</span></div>
 
       <div class="rtot"><span class="n">What this is worth</span><span class="v">RM 24,184</span></div>
@@ -621,7 +619,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
         <div class="was">Bought piece by piece <s>RM 24,184</s></div>
         <div class="fig">RM 9,800</div>
         <div class="save">You save RM 14,384</div>
-        <p class="sub">Paid once, before day one. No commission on your sales, no licence fee, nothing recurring attached to the install. It is built in your own accounts and stays yours whatever happens to me.</p>
+        <p class="sub">Paid once, before day one. No commission, no licence fee, nothing recurring. Built in your own accounts, so it stays yours whatever happens to me.</p>
         <a class="btn light" href="#contact" data-book data-plan="install">Book the 20-minute call &rarr;</a>
       </div>
     </div>
@@ -637,17 +635,9 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
     <p class="fine">Two conditions, both yours to control and both set up with you before I leave: you onboard at least ten creators through the pipeline in those 90 days, and the tracking codes stay live.</p>
   </div>
 
-  <div class="two" style="margin-top:14px">
-    <div class="c br">
-      <h4>What ten creators actually has to do</h4>
-      <p>At an average order of RM 145, ten creators averaging <b>eight orders each</b> over 90 days brings in RM 11,600. More than the fee, before a single repeat purchase.</p>
-      <p>Eight orders. Across three months. From a creator who has your product, your code, and a brief they confirmed themselves.</p>
-    </div>
-    <div class="c">
-      <h4>And if you don't believe that</h4>
-      <p><b>Don't buy this.</b> I'd genuinely rather you didn't, because that's the same thing as telling me you won't switch the system on.</p>
-      <p>The exact number is <code>N = max(10, fee &divide; (8 &times; your AOV))</code>, worked out from your own figures on the call, before you pay anything.</p>
-    </div>
+  <div class="c br" style="margin-top:14px">
+    <h4>What ten creators has to do</h4>
+    <p>At an average order of RM 145, ten creators averaging eight orders each over 90 days brings in RM 11,600. More than the fee, before a single repeat purchase. We work your exact number out on the call, before you pay anything.</p>
   </div>
 </div>
 
