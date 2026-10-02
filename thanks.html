@@ -305,7 +305,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .btn.light{background:#fff;color:var(--guar);border-color:#fff;box-shadow:none;margin-top:22px}
 .btn.light:hover{background:#fff;opacity:.93}
 
-/* support cards */
+/* guarantee support cards */
 .two{display:grid;gap:13px}
 @media (min-width:720px){.two{grid-template-columns:1fr 1fr}}
 .c{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--bg)}
@@ -348,6 +348,19 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
   transform:rotate(42deg)}
 .plan li b{color:var(--accent);font-weight:700}
 .plan .btn{margin-top:auto;width:100%}
+
+/* guarantee */
+.guar{background:var(--guar);color:rgba(255,255,255,.88);border-radius:20px;padding:36px 26px;text-align:center;
+  background-image:radial-gradient(120% 130% at 50% 0%,rgba(255,255,255,.18),transparent 60%);
+  box-shadow:0 22px 48px -28px var(--guar)}
+@media (min-width:800px){.guar{padding:60px 48px}}
+.guar .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);color:#fff;
+  border-radius:99px;padding:8px 16px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.guar .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
+.guar h2{color:#fff;margin:20px auto 0;max-width:20ch;font-size:28px}
+@media (min-width:800px){.guar h2{font-size:44px;line-height:1.1}}
+.guar p{margin:16px auto 0;font-size:16px;max-width:56ch}
+.guar .fine{margin-top:22px;font-size:13.5px;color:rgba(255,255,255,.66)}
 
 /* faq */
 details{border-bottom:1px solid var(--line)}
