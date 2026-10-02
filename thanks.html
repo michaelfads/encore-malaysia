@@ -349,30 +349,40 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .plan .btn{margin-top:auto;width:100%}
 
 /* guarantee */
-.guar{position:relative;overflow:hidden;border-radius:24px;padding:40px 24px 44px;text-align:center;
+.guar{position:relative;overflow:hidden;border-radius:24px;padding:44px 26px 48px;text-align:center;
   color:rgba(255,255,255,.86);
   background:
-    radial-gradient(86% 115% at 50% -12%,rgba(255,255,255,.24),transparent 58%),
-    linear-gradient(168deg,color-mix(in srgb,var(--guar) 84%,#fff) 0%,var(--guar) 44%,
-      color-mix(in srgb,var(--guar) 74%,#000) 100%);
-  box-shadow:0 30px 70px -30px var(--guar),0 2px 10px rgba(0,0,0,.26)}
-@media (min-width:800px){.guar{padding:64px 48px 66px;border-radius:28px}}
+    radial-gradient(118% 92% at 50% 44%,transparent 40%,rgba(0,0,0,.34) 100%),
+    radial-gradient(68% 64% at 50% -6%,rgba(255,255,255,.26),transparent 64%),
+    linear-gradient(168deg,color-mix(in srgb,var(--guar) 76%,#fff) 0%,var(--guar) 42%,
+      color-mix(in srgb,var(--guar) 64%,#000) 100%);
+  box-shadow:0 34px 76px -30px var(--guar),0 2px 10px rgba(0,0,0,.3)}
+@media (min-width:800px){.guar{max-width:880px;margin:0 auto;padding:74px 64px 78px;border-radius:30px}}
+/* fine grain stops the gradient reading as flat plastic */
+.guar::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.85%27 numOctaves=%274%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n%29%27/%3E%3C/svg%3E")}
 /* hairline ring, drawn over the gradient so the edge stays crisp */
 .guar::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),inset 0 1px 0 rgba(255,255,255,.26)}
-.guar .seal{width:62px;height:62px;border-radius:50%;margin:0 auto 20px;display:grid;place-items:center;
-  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
-  box-shadow:0 12px 26px -12px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.34)}
-.guar .seal svg{width:28px;height:28px;display:block;color:#fff}
-.guar .badge{display:inline-block;background:none;padding:0;border-radius:0;color:rgba(255,255,255,.66);
-  font-size:11.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.17),inset 0 1px 0 rgba(255,255,255,.3)}
+.guar > *{position:relative;z-index:1}
+/* concentric rings so it reads as a struck seal, not a round button */
+.guar .seal{width:66px;height:66px;border-radius:50%;margin:0 auto 24px;display:grid;place-items:center;
+  background:rgba(255,255,255,.15);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 14px 28px -14px rgba(0,0,0,.6),
+    0 0 0 1px rgba(255,255,255,.26),0 0 0 9px rgba(255,255,255,.045),
+    0 0 0 10px rgba(255,255,255,.11)}
+.guar .seal svg{width:29px;height:29px;display:block;color:#fff}
+.guar .badge{display:inline-block;background:none;padding:0;border-radius:0;color:rgba(255,255,255,.62);
+  font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase}
 .guar .badge::before{display:none}
-.guar h2{color:#fff;margin:14px auto 0;max-width:18ch;font-size:30px;letter-spacing:-.03em;line-height:1.12}
-@media (min-width:800px){.guar h2{font-size:46px;line-height:1.05}}
-.guar h2::after{content:"";display:block;width:44px;height:3px;border-radius:2px;margin:22px auto 0;
-  background:rgba(255,255,255,.32)}
-.guar p{margin:20px auto 0;font-size:16px;max-width:44ch;line-height:1.6;color:rgba(255,255,255,.84)}
-@media (min-width:800px){.guar p{font-size:17.5px}}
+.guar h2{color:#fff;margin:16px auto 0;max-width:18ch;font-size:31px;letter-spacing:-.032em;line-height:1.1}
+@media (min-width:800px){.guar h2{font-size:48px;line-height:1.04}}
+/* a rule that fades out at both ends instead of a grey dash */
+.guar h2::after{content:"";display:block;width:104px;height:1px;margin:26px auto 0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent)}
+.guar p{margin:22px auto 0;font-size:16px;max-width:42ch;line-height:1.62;color:rgba(255,255,255,.85)}
+@media (min-width:800px){.guar p{font-size:18px}}
 
 /* faq */
 details{border-bottom:1px solid var(--line)}
