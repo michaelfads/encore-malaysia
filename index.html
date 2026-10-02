@@ -247,44 +247,54 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .figs .ph{color:var(--ink-3)}
 
 /* receipt */
-.receipt{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg);
-  margin-top:28px;box-shadow:0 28px 58px -38px rgba(0,0,0,.45)}
-.rhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
-  padding:16px 18px;background:var(--tint);border-bottom:1px solid var(--line)}
-.rhead .t{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
-.rhead .rsub{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-.rl{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
-  padding:11px 18px;border-bottom:1px dotted var(--line)}
-.rl .n{font-size:14.5px;line-height:1.45;color:var(--ink-2)}
-.rl .n b{color:var(--ink);font-weight:600}
-.rl .v{font-size:13.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
-.rl.grp{background:var(--tint);border-bottom:1px solid var(--line);padding:9px 18px}
-.rl.grp .n{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
-.rl.free .v{color:var(--accent);font-weight:700}
+.receipt{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg);
+  margin-top:28px;box-shadow:0 30px 60px -40px rgba(0,0,0,.45)}
+.rhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:18px 20px;background:var(--tint);border-bottom:1px solid var(--line)}
+.rhead .t{font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.015em}
+.rhead .rsub{font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+
+.rl{display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:start;
+  padding:13px 20px 13px 40px;position:relative;border-bottom:1px solid var(--line)}
+@media (min-width:700px){.rl{padding-left:44px;padding-right:24px}}
+.rl::before{content:"";position:absolute;left:22px;top:19px;width:6px;height:6px;border-radius:50%;
+  background:var(--accent);opacity:.55}
+@media (min-width:700px){.rl::before{left:24px}}
+.rl .n{font-size:15px;line-height:1.5;color:var(--ink-2)}
+.rl .n b{display:block;color:var(--ink);font-weight:600;font-size:15.5px;letter-spacing:-.01em}
+.rl .n i{font-style:normal;display:block;margin-top:2px;font-size:14px;color:var(--ink-3);line-height:1.45}
+.rl .v{font-size:15px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;
+  white-space:nowrap;text-align:right;padding-top:1px}
+.rl .v::before{content:"RM ";font-size:12px;font-weight:500;color:var(--ink-3)}
+
+.rl.grp{display:block;background:var(--tint);padding:11px 20px;border-bottom:1px solid var(--line)}
+.rl.grp::before{display:none}
+.rl.grp .n{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.rl.free .v{color:var(--accent)}
+.rl.free .v::before{color:var(--accent);opacity:.75}
+.rl.free .tagfree{display:inline-block;margin-top:5px;font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);background:var(--accent-bg);padding:3px 8px;border-radius:99px}
+
 .rtot{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
-  padding:16px 18px;border-top:2px solid var(--ink)}
+  padding:20px;border-top:2px solid var(--ink);background:var(--tint)}
 .rtot .n{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
-.rtot .v{font-size:22px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
-.rstrike{padding:0 18px 12px;text-align:right}
-.rstrike s{font-size:15px;color:#A8432B;text-decoration-thickness:2px;font-variant-numeric:tabular-nums}
-.pricepanel{background:var(--guar);color:#fff;padding:26px 18px 28px}
-@media (min-width:800px){.pricepanel{padding:34px 30px 36px}}
-.pricepanel .k{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.78}
-.pricepanel .fig{font-size:46px;font-weight:700;line-height:1;letter-spacing:-.04em;margin-top:8px;
+.rtot .v{font-size:26px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+@media (min-width:700px){.rtot .v{font-size:30px}}
+
+.pricepanel{background:var(--guar);color:#fff;padding:28px 20px 30px;text-align:center}
+@media (min-width:800px){.pricepanel{padding:40px 30px 42px}}
+.pricepanel .k{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.75}
+.pricepanel .was{margin-top:12px;font-size:15px;opacity:.72;font-variant-numeric:tabular-nums}
+.pricepanel .was s{text-decoration-thickness:2px}
+.pricepanel .fig{font-size:52px;font-weight:700;line-height:1;letter-spacing:-.045em;margin-top:6px;
   font-variant-numeric:tabular-nums}
-@media (min-width:800px){.pricepanel .fig{font-size:72px}}
-.pricepanel .sub{margin-top:12px;font-size:15px;line-height:1.55;opacity:.92;max-width:50ch}
-.pricepanel .found{margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.35)}
-.pricepanel .fk{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.pricepanel .rn{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.9}
-.pricepanel .slots{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
-  border:1px solid rgba(255,255,255,.55);padding:4px 9px;border-radius:5px;white-space:nowrap}
-.pricepanel .ffig{font-size:34px;font-weight:700;line-height:1.02;letter-spacing:-.035em;margin-top:8px;
-  font-variant-numeric:tabular-nums}
-@media (min-width:800px){.pricepanel .ffig{font-size:50px}}
-.pricepanel .fd{margin-top:10px;font-size:15px;line-height:1.55;opacity:.93;max-width:50ch}
-.btn.light{background:#fff;color:var(--guar);border-color:#fff;box-shadow:none}
-.btn.light:hover{background:#fff;opacity:.92}
+@media (min-width:800px){.pricepanel .fig{font-size:80px}}
+.pricepanel .save{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.17);
+  padding:7px 14px;border-radius:99px}
+.pricepanel .sub{margin:14px auto 0;font-size:15px;line-height:1.6;opacity:.92;max-width:48ch}
+.btn.light{background:#fff;color:var(--guar);border-color:#fff;box-shadow:none;margin-top:22px}
+.btn.light:hover{background:#fff;opacity:.93}
 
 /* guarantee support cards */
 .two{display:grid;gap:13px}
@@ -576,42 +586,42 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
       <div class="rhead"><span class="t">The install</span><span class="rsub">Built in your accounts, in your name</span></div>
 
       <div class="rl grp"><span class="n">The method &mdash; seven procedures</span><span class="v"></span></div>
-      <div class="rl"><span class="n"><b>The Rulebook</b> &mdash; your operating model, lifecycle and daily rhythm</span><span class="v">980</span></div>
-      <div class="rl"><span class="n"><b>Creator acquisition + scorecard</b> &mdash; where your creators are, and who to skip</span><span class="v">1,280</span></div>
-      <div class="rl"><span class="n"><b>Outreach &amp; follow-up scripts</b> &mdash; English and Bahasa, every angle</span><span class="v">1,880</span></div>
-      <div class="rl"><span class="n"><b>Negotiation &amp; deal closing</b> &mdash; every objection, with the reply</span><span class="v">1,280</span></div>
-      <div class="rl"><span class="n"><b>Commission structure</b> &mdash; your rate, calculated from your own margin</span><span class="v">980</span></div>
-      <div class="rl"><span class="n"><b>Post-deal execution</b> &mdash; through to a locked posting date, never "soon"</span><span class="v">980</span></div>
-      <div class="rl"><span class="n"><b>Consistency &amp; re-engagement</b> &mdash; the 2nd, 3rd and 4th post</span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>The Rulebook</b><i>Your operating model, lifecycle and daily rhythm</i></span><span class="v">980</span></div>
+      <div class="rl"><span class="n"><b>Creator acquisition + scorecard</b><i>Where your creators are, and who to skip</i></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Outreach &amp; follow-up scripts</b><i>English and Bahasa, every angle</i></span><span class="v">1,880</span></div>
+      <div class="rl"><span class="n"><b>Negotiation &amp; deal closing</b><i>Every objection, with the reply</i></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Commission structure</b><i>Your rate, calculated from your own margin</i></span><span class="v">980</span></div>
+      <div class="rl"><span class="n"><b>Post-deal execution</b><i>Through to a locked posting date, never "soon"</i></span><span class="v">980</span></div>
+      <div class="rl"><span class="n"><b>Consistency &amp; re-engagement</b><i>The 2nd, 3rd and 4th post</i></span><span class="v">1,280</span></div>
 
       <div class="rl grp"><span class="n">Where the work happens</span><span class="v"></span></div>
-      <div class="rl"><span class="n"><b>Trello board</b>, built in your workspace with automation live</span><span class="v">1,280</span></div>
-      <div class="rl"><span class="n"><b>Drive setup</b> with automations &mdash; your content, owned and findable</span><span class="v">780</span></div>
-      <div class="rl"><span class="n"><b>Creator Lock Survey</b> &mdash; the brief locks before anything ships</span><span class="v">980</span></div>
+      <div class="rl"><span class="n"><b>Trello board</b><i>Built in your workspace with automation live</i></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Drive setup</b><i>With automations &mdash; your content, owned and findable</i></span><span class="v">780</span></div>
+      <div class="rl"><span class="n"><b>Creator Lock Survey</b><i>The brief locks before anything ships</i></span><span class="v">980</span></div>
 
       <div class="rl grp"><span class="n">Knowing what works</span><span class="v"></span></div>
-      <div class="rl"><span class="n"><b>Per-creator tracking</b> &mdash; a code and a link each, earnings tracked</span><span class="v">1,680</span></div>
-      <div class="rl"><span class="n"><b>Weekly 7-day report</b> &mdash; the method is yours; the portal generates it for you</span><span class="v">880</span></div>
-      <div class="rl"><span class="n"><b>Winning creative replication</b> &mdash; what sells, turned into a repeatable brief</span><span class="v">1,280</span></div>
-      <div class="rl"><span class="n"><b>Ads decision engine</b> &mdash; scale, keep, fix or kill, with the budget numbers</span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Per-creator tracking</b><i>A code and a link each, earnings tracked</i></span><span class="v">1,680</span></div>
+      <div class="rl"><span class="n"><b>Weekly 7-day report</b><i>The method is yours; the portal generates it for you</i></span><span class="v">880</span></div>
+      <div class="rl"><span class="n"><b>Winning creative replication</b><i>What sells, turned into a repeatable brief</i></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Ads decision engine</b><i>Scale, keep, fix or kill, with the budget numbers</i></span><span class="v">1,280</span></div>
 
       <div class="rl grp"><span class="n">Growing it</span><span class="v"></span></div>
-      <div class="rl"><span class="n"><b>Event strategy per moment</b> &mdash; Black Friday, 11.11, Raya, CNY</span><span class="v">1,280</span></div>
-      <div class="rl"><span class="n"><b>Quarterly scaling plan</b> &mdash; what to add, and in what order</span><span class="v">1,880</span></div>
+      <div class="rl"><span class="n"><b>Event strategy per moment</b><i>Black Friday, 11.11, Raya, CNY</i></span><span class="v">1,280</span></div>
+      <div class="rl"><span class="n"><b>Quarterly scaling plan</b><i>What to add, and in what order</i></span><span class="v">1,880</span></div>
 
       <div class="rl grp"><span class="n">Your people</span><span class="v"></span></div>
-      <div class="rl"><span class="n"><b>4 training sessions (8 hours)</b> + a recorded handover you keep</span><span class="v">3,520</span></div>
+      <div class="rl"><span class="n"><b>4 training sessions (8 hours)</b><i>+ a recorded handover you keep</i></span><span class="v">3,520</span></div>
       <div class="rl free"><span class="n"><b>Creator Hub</b> &mdash; your own portal, configured for your business, free for months 1&ndash;3</span><span class="v">684</span></div>
 
       <div class="rtot"><span class="n">What this is worth</span><span class="v">RM 24,184</span></div>
-      <div class="rstrike"><s>RM 24,184</s></div>
 
       <div class="pricepanel">
         <div class="k">The install &mdash; paid once</div>
+        <div class="was">Bought piece by piece <s>RM 24,184</s></div>
         <div class="fig">RM 9,800</div>
-        <p class="sub">Paid once, before day one. No commission on your sales, no licence fee, and nothing recurring attached to the install itself. It is built in your own accounts and stays yours whatever happens to me.</p>
-
-        <a class="btn light" href="#contact" data-book data-plan="install" style="margin-top:20px">Book the 20-minute call &rarr;</a>
+        <div class="save">You save RM 14,384</div>
+        <p class="sub">Paid once, before day one. No commission on your sales, no licence fee, nothing recurring attached to the install. It is built in your own accounts and stays yours whatever happens to me.</p>
+        <a class="btn light" href="#contact" data-book data-plan="install">Book the 20-minute call &rarr;</a>
       </div>
     </div>
   </div>
