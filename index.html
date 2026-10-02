@@ -141,15 +141,19 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .card p{margin-top:7px;font-size:15px}
 
 /* story + video */
-.storyshot{position:relative;border-radius:16px;overflow:hidden;background:var(--tint);
-  border:1px solid var(--line);aspect-ratio:4/3;box-shadow:0 24px 50px -36px rgba(0,0,0,.6)}
-.storyshot img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+/* native ratio of story.jpg (1000x1039) so the whole frame shows, nothing cropped */
+.storyshot{position:relative;border-radius:18px;overflow:hidden;background:var(--tint);
+  aspect-ratio:1000/1039;
+  box-shadow:0 2px 5px rgba(0,0,0,.16),0 32px 64px -34px rgba(0,0,0,.72)}
+.storyshot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.11)}
+.storyshot img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 /* the caption rides on the photo instead of hanging under it as a stray line */
 .storyshot .cap{position:absolute;left:0;right:0;bottom:0;margin:0;padding:40px 16px 14px;
   font-size:12.5px;font-weight:600;letter-spacing:.015em;color:#fff;
   text-shadow:0 1px 3px rgba(0,0,0,.6);
   background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.55) 40%,transparent)}
-@media (min-width:860px){.storyshot{aspect-ratio:1/1;max-height:520px;border-radius:20px}}
+@media (min-width:860px){.storyshot{border-radius:22px}}
 .story{display:grid;gap:24px;align-items:center}
 @media (min-width:860px){.story{grid-template-columns:1fr 1fr;gap:48px}}
 .story p + p{margin-top:14px}
