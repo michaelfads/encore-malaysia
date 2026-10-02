@@ -141,15 +141,21 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .card p{margin-top:7px;font-size:15px}
 
 /* story + video */
-.storyshot{border-radius:16px;overflow:hidden;background:var(--tint);border:1px solid var(--line);
-  aspect-ratio:1/1;max-height:520px;box-shadow:0 28px 56px -38px rgba(0,0,0,.6)}
-.storyshot img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-.story{display:grid;gap:26px;align-items:center}
+.storyshot{position:relative;border-radius:16px;overflow:hidden;background:var(--tint);
+  border:1px solid var(--line);aspect-ratio:4/3;box-shadow:0 24px 50px -36px rgba(0,0,0,.6)}
+.storyshot img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+/* the caption rides on the photo instead of hanging under it as a stray line */
+.storyshot .cap{position:absolute;left:0;right:0;bottom:0;margin:0;padding:40px 16px 14px;
+  font-size:12.5px;font-weight:500;letter-spacing:.01em;color:rgba(255,255,255,.94);
+  background:linear-gradient(to top,rgba(0,0,0,.74),rgba(0,0,0,.28) 48%,transparent)}
+@media (min-width:860px){.storyshot{aspect-ratio:1/1;max-height:520px;border-radius:20px}}
+.story{display:grid;gap:24px;align-items:center}
 @media (min-width:860px){.story{grid-template-columns:1fr 1fr;gap:48px}}
 .story p + p{margin-top:14px}
-.pullq{margin-top:22px;padding-left:18px;border-left:3px solid var(--accent);
-  color:var(--ink);font-size:18px;font-weight:500;line-height:1.45}
-@media (min-width:800px){.pullq{font-size:20px}}
+.pullq{margin-top:20px;padding:17px 19px;border-radius:14px;border-left:3px solid var(--accent);
+  border-top-left-radius:5px;border-bottom-left-radius:5px;background:var(--accent-bg);
+  color:var(--ink);font-size:17px;font-weight:500;line-height:1.45}
+@media (min-width:800px){.pullq{font-size:19px;padding:20px 24px}}
 .video{position:relative;border-radius:16px;overflow:hidden;background:#000;
   border:1px solid var(--line);aspect-ratio:16/9;box-shadow:0 26px 54px -36px rgba(0,0,0,.6)}
 .video video,.video iframe,.video img{position:absolute;inset:0;width:100%;height:100%;border:0;
@@ -495,10 +501,10 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
       </div>
 
       <div>
-        <div class="storyshot">
+        <figure class="storyshot">
           <img src="story.jpg" alt="Michael and his team packing creator orders at TAPE IT">
-        </div>
-        <p style="margin-top:12px;font-size:14px;color:var(--ink-3)">Packing creator orders at TAPE IT.</p>
+          <figcaption class="cap">Packing creator orders at TAPE IT</figcaption>
+        </figure>
       </div>
     </div>
   </div>
