@@ -11,629 +11,439 @@
 <meta property="og:image" content="michael.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Encore Malaysia</title>
+<title>The Encore Install</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
 <style>
-html{scroll-behavior:smooth;scroll-padding-top:80px}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
 :root{
-  --bg:#FFFFFF;
-  --tint:#F4F8FB;
-  --tint-2:#EAF0F3;
-  --ink:#0D0D0D;
-  --ink-2:#46525A;
-  --ink-3:#84919A;
-  --line:#E3EAEF;
-  --accent:#005E8C;
-  --accent-bg:rgba(0,94,140,.07);
-  --guar:#005E8C;
-  --dark:#0D0D0D;
-  --dark-ink:#FFFFFF;
-  --dark-ink-2:#9AA7AF;
-  --dark-line:#222;
+  --bg:#FFFFFF; --tint:#F4F8FB; --ink:#0D0D0D; --ink-2:#46525A; --ink-3:#84919A;
+  --line:#E3EAEF; --accent:#005E8C; --accent-bg:rgba(0,94,140,.07); --on-acc:#FFFFFF;
+  --good:#0E7A5F; --good-bg:rgba(14,122,95,.08);
+  --bad:#A8432B; --bad-bg:rgba(168,67,43,.07);
+  --brass:#8A6A14; --brass-bg:rgba(138,106,20,.07);
   --font:"DM Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  --wrap:1080px;
-  --pad:20px;
+  --wrap:880px; --pad:20px;
 }
-@media (min-width:800px){:root{--pad:44px}}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0D0F11;--tint:#14181B;--tint-2:#1A1F23;--ink:#F2F5F7;--ink-2:#A7B3BA;--ink-3:#7A868D;
-    --line:#232A2F;--accent:#57B6E0;--accent-bg:rgba(87,182,224,.10);--guar:#0A4F73;
-    --dark:#14181B;--dark-ink:#F2F5F7;--dark-ink-2:#9AA7AF;--dark-line:#2A3238;
-  }
-}
+@media (min-width:800px){:root{--pad:40px}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D0F11; --tint:#14181B; --ink:#F2F5F7; --ink-2:#A7B3BA; --ink-3:#7A868D;
+  --line:#232A2F; --accent:#57B6E0; --accent-bg:rgba(87,182,224,.10); --on-acc:#06161F;
+  --good:#5FC3A4; --good-bg:rgba(95,195,164,.10);
+  --bad:#E9897A; --bad-bg:rgba(233,137,122,.10);
+  --brass:#D4AF50; --brass-bg:rgba(212,175,80,.10);
+}}
 :root[data-theme="dark"]{
-  --bg:#0D0F11;--tint:#14181B;--tint-2:#1A1F23;--ink:#F2F5F7;--ink-2:#A7B3BA;--ink-3:#7A868D;
-  --line:#232A2F;--accent:#57B6E0;--accent-bg:rgba(87,182,224,.10);--guar:#0A4F73;
-  --dark:#14181B;--dark-ink:#F2F5F7;--dark-ink-2:#9AA7AF;--dark-line:#2A3238;
+  --bg:#0D0F11; --tint:#14181B; --ink:#F2F5F7; --ink-2:#A7B3BA; --ink-3:#7A868D;
+  --line:#232A2F; --accent:#57B6E0; --accent-bg:rgba(87,182,224,.10); --on-acc:#06161F;
+  --good:#5FC3A4; --good-bg:rgba(95,195,164,.10);
+  --bad:#E9897A; --bad-bg:rgba(233,137,122,.10);
+  --brass:#D4AF50; --brass-bg:rgba(212,175,80,.10);
 }
 
 *{box-sizing:border-box;min-width:0}
-body{background:var(--bg);color:var(--ink-2);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{margin:0;color:var(--ink);font-weight:600;letter-spacing:-.02em;line-height:1.18;text-wrap:balance}
-h1{font-size:30px}
-h2{font-size:26px}
-h3{font-size:17px;letter-spacing:-.01em}
+body{margin:0;background:var(--bg);color:var(--ink-2);font-family:var(--font);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+@media (min-width:820px){body{padding-bottom:0}}
+h1,h2,h3,h4{margin:0;color:var(--ink);font-weight:600;letter-spacing:-.02em;line-height:1.18;text-wrap:balance}
 p{margin:0}
 a{color:inherit}
-img{max-width:100%;display:block}
-@media (min-width:800px){
-  h1{font-size:52px;line-height:1.08}
-  h2{font-size:34px}
-  h3{font-size:18px}
-}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.sec{padding-top:48px;padding-bottom:48px}
+@media (min-width:800px){.sec{padding-top:72px;padding-bottom:72px}}
+.lab{font-size:11px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:var(--ink-3)}
+.rule{height:1px;background:var(--line);border:0;margin:0}
 
-.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad);position:relative}
-.glow{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
-.glow::before{content:"";position:absolute;top:-180px;left:50%;transform:translateX(-50%);
-  width:min(120vw,1100px);height:520px;border-radius:50%;
-  background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 20%,transparent),transparent);
-  filter:blur(10px)}
-.sec{padding-top:52px;padding-bottom:52px}
-@media (min-width:800px){.sec{padding-top:84px;padding-bottom:84px}}
-.mark{position:relative;white-space:nowrap}
-.mark::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.1em;height:.34em;z-index:-1;
-  background:color-mix(in srgb,var(--accent) 28%,transparent);border-radius:3px}
-.eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-.lead{margin-top:14px;font-size:16.5px;color:var(--ink-2)}
-@media (min-width:800px){.lead{font-size:18px}}
+h2.sh{font-size:11px;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:var(--ink-3);
+  display:flex;align-items:center;gap:12px;margin-bottom:18px}
+h2.sh::after{content:"";flex:1;height:1px;background:var(--line)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:600;
-  padding:14px 24px;border-radius:10px;text-decoration:none;background:var(--accent);color:#fff;
-  border:1px solid var(--accent);transition:opacity .15s,transform .15s,box-shadow .15s;
-  box-shadow:0 10px 22px -14px var(--accent)}
-.btn:hover{opacity:.94;transform:translateY(-1px);box-shadow:0 14px 26px -14px var(--accent)}
-.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-.btn.ghost:hover{border-color:var(--ink-3);opacity:1}
-.btn.light{background:#fff;color:var(--dark);border-color:#fff}
-.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.btns .btn{flex:1 1 auto}
-@media (min-width:560px){.btns .btn{flex:0 0 auto}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  font-size:16px;font-weight:600;padding:16px 26px;border-radius:12px;text-decoration:none;
+  background:var(--accent);color:var(--on-acc);border:1px solid var(--accent);min-height:52px;
+  box-shadow:0 12px 26px -16px var(--accent);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 18px 32px -16px var(--accent)}
+@media (min-width:560px){.btn{width:auto}}
 a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-/* nav */
-.nav{border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 86%,transparent);
-  backdrop-filter:blur(12px);position:sticky;top:0;z-index:50}
-.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-weight:700;letter-spacing:-.025em;font-size:16px;white-space:nowrap}
-@media (min-width:480px){.brand{font-size:17px}}
-.brand i{width:26px;height:26px;border-radius:7px;background:var(--accent);display:block;flex:0 0 auto;
-  background-image:linear-gradient(135deg,var(--accent) 40%,#32C8AC)}
-.nav .btn{padding:10px 16px;font-size:14px}
-
 /* hero */
-.hero{display:block}
-.hero .lead{margin-top:22px;max-width:60ch}
-.hero-video{margin-top:26px;border-radius:16px;overflow:hidden;background:#000;
-  border:1px solid var(--line);aspect-ratio:16/9;position:relative;
-  box-shadow:0 30px 60px -38px rgba(0,0,0,.6)}
-.hero-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border:0}
-@media (min-width:960px){.hero-video{border-radius:20px}}
+.hero{padding-top:44px;padding-bottom:36px}
+@media (min-width:800px){.hero{padding-top:64px;padding-bottom:52px}}
+.hero h1{font-size:34px;line-height:1.06;letter-spacing:-.035em;margin-top:14px;max-width:17ch}
+@media (min-width:800px){.hero h1{font-size:60px}}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .sell{margin-top:18px;font-size:17px;color:var(--ink-2);max-width:54ch}
+@media (min-width:800px){.hero .sell{font-size:19px}}
+.hero .cta{margin-top:26px}
+.hero .after{margin-top:14px;font-size:14.5px;color:var(--ink-3);max-width:54ch}
+.trust{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin-top:30px}
+@media (min-width:620px){.trust{grid-template-columns:repeat(3,1fr)}}
+.trust > div{background:var(--tint);padding:15px 18px}
+.trust .t{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.trust .v{margin-top:6px;font-size:16px;font-weight:600;color:var(--ink)}
 
-/* figures */
-.figs{display:grid;gap:12px;margin-top:4px}
-@media (min-width:700px){.figs{grid-template-columns:repeat(3,1fr)}}
-.figs > div{background:var(--tint);border:1px solid var(--line);border-radius:16px;
-  padding:22px 20px 20px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.figs > div:hover{transform:translateY(-2px);box-shadow:0 18px 36px -26px rgba(0,0,0,.55)}
-.figs .ic{width:38px;height:38px;border-radius:11px;background:var(--bg);border:1px solid var(--line);
-  display:grid;place-items:center;color:var(--accent);margin-bottom:16px}
-.figs .ic svg{width:19px;height:19px;display:block}
-.figs .v{font-size:34px;font-weight:700;color:var(--ink);letter-spacing:-.04em;line-height:1}
-@media (min-width:700px){.figs .v{font-size:38px}}
-.figs .k{margin-top:9px;font-size:14px;color:var(--ink-2);line-height:1.45}
-.figs .k b{color:var(--ink);font-weight:700}
-.figs > .hi{background:var(--accent-bg);border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
-.figs > .hi::after{content:"";position:absolute;right:-40px;top:-40px;width:130px;height:130px;
-  border-radius:50%;background:var(--accent);opacity:.07}
-.figs > .hi .ic{background:var(--accent);border-color:var(--accent);color:#fff}
-.figs > .hi .v{color:var(--accent)}
+/* problem */
+.pull{font-size:21px;line-height:1.35;color:var(--ink);font-weight:600;
+  border-left:3px solid var(--accent);padding-left:18px;max-width:34ch}
+@media (min-width:800px){.pull{font-size:26px}}
+.body-2{margin-top:22px;display:grid;gap:14px;max-width:64ch}
+.body-2 p{color:var(--ink-2)}
+.compare{display:grid;gap:12px;margin-top:28px}
+@media (min-width:720px){.compare{grid-template-columns:1fr 1fr}}
+.col{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--bg)}
+.col.now{border-left:3px solid var(--bad);background:var(--bad-bg)}
+.col.aft{border-left:3px solid var(--good);background:var(--good-bg)}
+.col .h{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.col.now .h{color:var(--bad)} .col.aft .h{color:var(--good)}
+.col ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:11px}
+.col li{position:relative;padding-left:20px;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.col li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%}
+.col.now li::before{background:var(--bad)} .col.aft li::before{background:var(--good)}
 
-/* value cards */
-.cards{display:grid;gap:12px;margin-top:30px}
-@media (min-width:700px){.cards{grid-template-columns:1fr 1fr}}
-.card{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--bg);transition:box-shadow .2s,transform .2s}
-.card:hover{box-shadow:0 14px 30px -22px rgba(0,0,0,.5);transform:translateY(-2px)}
-.card .n{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;
-  background:var(--accent-bg);color:var(--accent);font-size:13px;font-weight:700;margin-bottom:14px}
-.card p{margin-top:7px;font-size:15px}
+/* the call */
+.call{border:2px solid var(--accent);border-radius:18px;overflow:hidden;background:var(--bg);
+  box-shadow:0 26px 54px -34px var(--accent)}
+.call .hd{background:var(--accent);color:var(--on-acc);padding:14px 20px;
+  font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.call .bd{padding:22px 20px 24px}
+@media (min-width:800px){.call .bd{padding:28px 30px 30px}}
+.call .big{font-size:24px;font-weight:600;color:var(--ink);letter-spacing:-.025em;max-width:24ch;line-height:1.2}
+@media (min-width:800px){.call .big{font-size:32px}}
+.call ol{margin:20px 0 0;padding:0;list-style:none;counter-reset:s;display:grid;gap:13px}
+.call ol li{counter-increment:s;position:relative;padding-left:40px;font-size:15.5px;
+  line-height:1.5;color:var(--ink-2)}
+.call ol li::before{content:counter(s);position:absolute;left:0;top:0;width:27px;height:27px;
+  border-radius:9px;background:var(--accent-bg);color:var(--accent);font-size:12.5px;font-weight:700;
+  display:grid;place-items:center}
+.call .go{margin-top:24px}
+.call .fine{margin-top:14px;font-size:14px;color:var(--ink-3);max-width:52ch}
 
-/* story + video */
-.storyshot{border-radius:16px;overflow:hidden;background:var(--tint);border:1px solid var(--line);
-  aspect-ratio:1/1;max-height:520px;box-shadow:0 28px 56px -38px rgba(0,0,0,.6)}
-.storyshot img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-.story{display:grid;gap:26px;align-items:center}
-@media (min-width:860px){.story{grid-template-columns:1fr 1fr;gap:48px}}
-.story p + p{margin-top:14px}
-.pullq{margin-top:22px;padding-left:18px;border-left:3px solid var(--accent);
-  color:var(--ink);font-size:18px;font-weight:500;line-height:1.45}
-@media (min-width:800px){.pullq{font-size:20px}}
-.video{position:relative;border-radius:16px;overflow:hidden;background:#000;
-  border:1px solid var(--line);aspect-ratio:16/9;box-shadow:0 26px 54px -36px rgba(0,0,0,.6)}
-.video video,.video iframe,.video img{position:absolute;inset:0;width:100%;height:100%;border:0;
-  object-fit:cover;object-position:center 22%;display:block}
-.play{width:58px;height:58px;border-radius:50%;background:var(--accent);display:grid;place-items:center;margin:0 auto}
-.play::after{content:"";border-left:15px solid #fff;border-top:9px solid transparent;
-  border-bottom:9px solid transparent;margin-left:4px}
-.video .cap{margin-top:12px;font-size:13.5px;color:var(--ink-3)}
+/* receipt */
+.receipt{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg);
+  box-shadow:0 26px 56px -38px rgba(0,0,0,.45)}
+.rhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding:16px 18px;background:var(--tint);border-bottom:1px solid var(--line)}
+.rhead .t{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.rl{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  padding:11px 18px;border-bottom:1px dotted var(--line)}
+.rl .n{font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+.rl .n b{color:var(--ink);font-weight:600}
+.rl .v{font-size:13.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.rl.grp{background:var(--tint);border-bottom:1px solid var(--line);padding:9px 18px}
+.rl.grp .n{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+.rl.free .v{color:var(--accent);font-weight:700}
+.rtot{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  padding:16px 18px;border-top:2px solid var(--ink)}
+.rtot .n{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.rtot .v{font-size:22px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+.rstrike{padding:0 18px 12px;text-align:right}
+.rstrike s{font-size:15px;color:var(--bad);text-decoration-thickness:2px;font-variant-numeric:tabular-nums}
+.price{background:var(--accent);color:var(--on-acc);padding:26px 18px 28px}
+@media (min-width:800px){.price{padding:32px 30px 34px}}
+.price .k{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.78}
+.price .fig{font-size:46px;font-weight:700;line-height:1;letter-spacing:-.04em;margin-top:8px;
+  font-variant-numeric:tabular-nums}
+@media (min-width:800px){.price .fig{font-size:72px}}
+.price .sub{margin-top:12px;font-size:15px;line-height:1.55;opacity:.93;max-width:50ch}
+.price .found{margin-top:20px;padding-top:18px;border-top:1px solid currentColor}
+.price .fk{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.price .rn{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.88}
+.price .slots{font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  border:1px solid currentColor;padding:4px 9px;border-radius:5px;white-space:nowrap}
+.price .ffig{font-size:34px;font-weight:700;line-height:1.02;letter-spacing:-.035em;margin-top:8px;
+  font-variant-numeric:tabular-nums}
+@media (min-width:800px){.price .ffig{font-size:50px}}
+.price .fd{margin-top:10px;font-size:15px;line-height:1.55;opacity:.93;max-width:50ch}
 
-/* sample dashboard */
-.dash{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg);margin-top:28px;
-  box-shadow:0 30px 60px -40px rgba(0,0,0,.55)}
-.dash-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-  padding:16px 18px;border-bottom:1px solid var(--line);background:var(--tint)}
-.dash-top b{color:var(--ink);font-size:15px;font-weight:600}
-.dash-top span{font-size:12.5px;color:var(--ink-3)}
-.dash-scroll{overflow-x:auto}
-.dash table{border-collapse:collapse;width:100%;min-width:520px}
-.dash th{text-align:left;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);padding:12px 18px;border-bottom:1px solid var(--line)}
-.dash td{padding:13px 18px;font-size:14.5px;color:var(--ink-2);border-bottom:1px solid var(--line);
-  font-variant-numeric:tabular-nums;white-space:nowrap}
-.dash td:first-child{color:var(--ink);font-weight:500}
-.dash tr:last-child td{border-bottom:0}
-.dash .up{color:#0E7A5F;font-weight:600}
-.dash .down{color:#A8432B;font-weight:600}
-.pill{display:inline-block;padding:3px 9px;border-radius:99px;font-size:11.5px;font-weight:600}
-.pill.good{background:rgba(14,122,95,.12);color:#0E7A5F}
-.pill.bad{background:rgba(168,67,43,.12);color:#A8432B}
-.dash-foot{padding:12px 18px;font-size:12.5px;color:var(--ink-3);background:var(--tint);border-top:1px solid var(--line)}
-
-/* proof */
-.anchor{margin-top:16px;font-size:14.5px;color:var(--ink-2);line-height:1.55;max-width:62ch;
-  background:var(--tint);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-.ownline{margin-top:14px;font-size:16px;color:var(--ink);line-height:1.55;max-width:62ch;
-  border-left:3px solid var(--accent);padding-left:16px}
-.ownline b{font-weight:700}
-@media (min-width:800px){.ownline{font-size:17px}}
-.big-h{font-size:40px;letter-spacing:-.04em;line-height:1;position:relative;display:inline-block}
-.big-h::after{content:"";display:block;height:4px;width:62px;margin-top:14px;border-radius:2px;
-  background:var(--accent)}
-@media (min-width:800px){.big-h{font-size:64px}.big-h::after{width:84px;height:5px}}
-.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}
-@media (min-width:640px){.metrics{grid-template-columns:repeat(3,1fr);gap:12px}}
-.metrics > div{background:var(--bg);border:1px solid var(--line);border-radius:14px;
-  padding:16px 16px 15px;transition:border-color .2s}
-.metrics > div:hover{border-color:var(--ink-3)}
-.metrics .m{font-size:10.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--ink-3);line-height:1.4}
-.metrics .n{margin-top:10px;font-size:24px;font-weight:700;color:var(--ink);
-  letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
-@media (min-width:640px){.metrics .n{font-size:26px}}
-.metrics .n small{display:block;margin-top:7px;font-size:12px;font-weight:400;
-  color:var(--ink-3);letter-spacing:0;line-height:1.4}
-.metrics > .key{background:var(--accent-bg);border-color:color-mix(in srgb,var(--accent) 38%,transparent)}
-.metrics > .key .m,.metrics > .key .n{color:var(--accent)}
-.metrics > .key .n small{color:color-mix(in srgb,var(--accent) 72%,transparent)}
-
-.shots{display:grid;gap:22px;margin-top:30px;margin-bottom:22px}
-.shots figure{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:22px;
-  padding:22px 20px;box-shadow:0 30px 64px -44px rgba(0,0,0,.6)}
-@media (min-width:800px){.shots figure{padding:30px}}
-.src{display:inline-flex;align-items:center;gap:7px;background:var(--accent-bg);color:var(--accent);
-  border-radius:99px;padding:6px 13px;font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}
-.src::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.shotstat{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:16px}
-.shotstat b{font-size:44px;font-weight:700;color:var(--accent);letter-spacing:-.04em;line-height:1}
-@media (min-width:800px){.shotstat b{font-size:64px}}
-.shotstat span{font-size:16px;color:var(--ink);font-weight:600}
-.shots figcaption{margin-top:12px;font-size:14.5px;color:var(--ink-2);line-height:1.55;max-width:66ch}
-.shots .frame{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:#fff;
-  overflow:hidden;padding:6px}
-.shots .frame img{width:100%;height:auto;border-radius:9px}
-.quotes{display:grid;gap:12px;margin-top:12px}
-@media (min-width:700px){.quotes{grid-template-columns:1fr 1fr}}
-.quote{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--bg)}
-.quote p{color:var(--ink);font-size:15.5px}
-.quote .by{margin-top:14px;font-size:13.5px;color:var(--ink-3)}
-.quote .by b{display:block;color:var(--ink);font-size:14.5px;font-weight:600}
-
-/* cta band */
-.ctaband{margin-top:30px;border:1px solid var(--line);border-radius:20px;padding:28px 24px;text-align:center;
-  background:linear-gradient(180deg,var(--accent-bg),transparent)}
-@media (min-width:800px){.ctaband{padding:40px}}
-.ctaband h3{font-size:21px;max-width:24ch;margin:0 auto;line-height:1.25}
-@media (min-width:800px){.ctaband h3{font-size:26px}}
-.ctaband p{margin-top:10px;font-size:15px}
-.ctaband .btn{margin-top:20px}
-
-/* chips */
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.chips span{border:1px solid var(--line);background:var(--tint);border-radius:99px;padding:9px 17px;font-size:14px;font-weight:500;color:var(--ink);transition:border-color .15s,background .15s}
-.chips span:hover{border-color:var(--accent);background:var(--accent-bg)}
-.qual{margin-top:20px;font-size:15px;max-width:60ch}
-.figs .ph{color:var(--ink-3)}
-
-/* plans */
-.ladder{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px;max-width:62ch}
-.ladder li{display:flex;gap:13px;align-items:flex-start;background:var(--bg);
-  border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:border-color .2s}
-.ladder li:hover{border-color:var(--ink-3)}
-.ladder .e{flex:0 0 auto;display:grid;place-items:center;width:26px;height:26px;border-radius:8px;
-  background:var(--accent-bg);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.03em}
-.ladder .t{font-size:15px;color:var(--ink-2);line-height:1.5}
-.ladder b{color:var(--ink);font-weight:600}
-.plans{display:grid;gap:12px;margin-top:30px}
-@media (min-width:860px){.plans{grid-template-columns:repeat(3,1fr);align-items:stretch}}
-.plan{border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;background:var(--bg)}
-.plan.best{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 26px 54px -34px var(--accent)}
-.plan h3{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:700;letter-spacing:-.025em}
-@media (min-width:860px){.plan h3{font-size:24px}}
-.plan h3 .pn{display:grid;place-items:center;width:26px;height:26px;border-radius:8px;flex:0 0 auto;
-  background:var(--accent-bg);color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.03em}
-.plan.best h3 .pn{background:var(--accent);color:#fff}
-.plan .tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.save{display:inline-block;vertical-align:middle;background:var(--accent);color:#fff;border-radius:99px;
-  padding:4px 10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  margin-left:6px;position:relative;top:-3px}
-.plan .price{margin-top:12px;font-size:30px;font-weight:700;color:var(--ink);letter-spacing:-.03em}
-.plan .price s{font-size:17px;font-weight:500;color:var(--ink-3);margin-right:8px}
-.plan .who{margin-top:8px;font-size:14.5px}
-.plan ul{list-style:none;margin:20px 0 24px;padding:18px 0 0;border-top:1px solid var(--line);display:grid;gap:9px}
-.plan li{position:relative;padding-left:24px;font-size:14.5px;line-height:1.5}
-.plan li::before{content:"";position:absolute;left:2px;top:6px;width:5px;height:9px;
-  border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);
-  transform:rotate(42deg)}
-.plan li b{color:var(--accent);font-weight:700}
-.plan .btn{margin-top:auto;width:100%}
-
-/* guarantee */
-.guar{background:var(--guar);color:rgba(255,255,255,.88);border-radius:20px;padding:36px 26px;text-align:center;
-  background-image:radial-gradient(120% 130% at 50% 0%,rgba(255,255,255,.18),transparent 60%);
-  box-shadow:0 22px 48px -28px var(--guar)}
-@media (min-width:800px){.guar{padding:60px 48px}}
-.guar .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);color:#fff;
-  border-radius:99px;padding:8px 16px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
-.guar .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff}
-.guar h2{color:#fff;margin:20px auto 0;max-width:20ch;font-size:28px}
-@media (min-width:800px){.guar h2{font-size:44px;line-height:1.1}}
-.guar p{margin:16px auto 0;font-size:16px;max-width:56ch}
-.guar .fine{margin-top:22px;font-size:13.5px;color:rgba(255,255,255,.66)}
+/* cards */
+.two{display:grid;gap:13px}
+@media (min-width:720px){.two{grid-template-columns:1fr 1fr}}
+.c{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--bg)}
+.c h4{font-size:16px;font-weight:700;margin-bottom:10px}
+.c p{font-size:15px;color:var(--ink-2);line-height:1.55}
+.c p + p{margin-top:10px}
+.c ol,.c ul{margin:10px 0 0;padding-left:20px}
+.c li{font-size:15px;line-height:1.55;color:var(--ink-2);margin-bottom:7px}
+.c li b{color:var(--ink)}
+.c.acc{border-left:3px solid var(--accent)}
+.c.br{border-left:3px solid var(--brass);background:var(--brass-bg)}
+code{font-size:.88em;background:var(--tint);padding:2px 6px;border-radius:4px;color:var(--ink)}
 
 /* faq */
 details{border-bottom:1px solid var(--line)}
 details:first-of-type{border-top:1px solid var(--line)}
-summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;position:relative;color:var(--ink);font-weight:600;font-size:16px;line-height:1.45;transition:color .15s}
-summary:hover,details[open] summary{color:var(--accent)}
+summary{cursor:pointer;list-style:none;padding:18px 40px 18px 0;position:relative;
+  color:var(--ink);font-weight:600;font-size:16.5px;line-height:1.45;transition:color .15s}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"";position:absolute;right:6px;top:25px;width:9px;height:9px;border-right:2px solid var(--ink-3);
-  border-bottom:2px solid var(--ink-3);transform:rotate(45deg);transition:transform .2s}
+summary:hover,details[open] summary{color:var(--accent)}
+summary::after{content:"";position:absolute;right:6px;top:25px;width:9px;height:9px;
+  border-right:2px solid var(--ink-3);border-bottom:2px solid var(--ink-3);
+  transform:rotate(45deg);transition:transform .2s}
 details[open] summary::after{transform:rotate(-135deg);top:28px}
-details p{padding:0 0 20px;font-size:15.5px;max-width:62ch}
+details .a{padding:0 0 20px;font-size:15.5px;color:var(--ink-2);line-height:1.6;max-width:64ch}
+details .a p + p{margin-top:11px}
 
-/* contact */
-.contact{background:var(--tint);border:1px solid var(--line);border-radius:18px;padding:28px}
-@media (min-width:800px){.contact{padding:40px}}
-.calwrap{margin-top:24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;
-  background:#fff;box-shadow:0 30px 60px -40px rgba(0,0,0,.5);scroll-margin-top:90px}
-/* Calendly needs 280px minimum, so on small screens let the panel break out of
-   the card padding instead of being clipped */
-@media (max-width:560px){
-  .contact{padding:20px}
-  .calwrap{margin-left:-20px;margin-right:-20px;border-radius:12px}
-}
-.calhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:16px 20px;
-  background:#0D2A3A;color:#fff}
+/* close */
+.close{background:var(--tint);border:1px solid var(--line);border-radius:18px;padding:28px 20px}
+@media (min-width:800px){.close{padding:40px}}
+.close h2{font-size:28px;letter-spacing:-.03em;max-width:20ch}
+@media (min-width:800px){.close h2{font-size:40px}}
+.close p{margin-top:14px;font-size:16.5px;color:var(--ink-2);max-width:54ch}
+.calwrap{margin-top:24px;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  background:#fff;box-shadow:0 26px 54px -38px rgba(0,0,0,.5);scroll-margin-top:24px}
+.calhead{padding:15px 20px;background:#0D2A3A;color:#fff}
 .calhead b{font-size:16px;font-weight:600}
-.calhead span{font-size:12.5px;color:rgba(255,255,255,.7)}
+.calhead span{display:block;margin-top:3px;font-size:12.5px;color:rgba(255,255,255,.72)}
 .calwrap .calendly-inline-widget{min-width:280px;height:700px}
-@media (min-width:700px){.calwrap .calendly-inline-widget{height:720px}}
-.ways{display:grid;gap:10px;margin-top:24px}
-@media (min-width:640px){.ways{grid-template-columns:1fr}}
-.way{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-decoration:none;display:block;transition:border-color .15s,box-shadow .15s,transform .15s}
-.way:hover{border-color:var(--accent);box-shadow:0 14px 28px -22px var(--accent);transform:translateY(-2px)}
+@media (max-width:560px){.close{padding:22px 16px}.calwrap{margin-left:-16px;margin-right:-16px;border-radius:12px}}
 
-/* the booking card is the primary action here, not a third contact detail */
-.ways .way[data-book]{background:var(--accent);border-color:var(--accent);
-  padding:20px 52px 20px 22px;position:relative;
-  box-shadow:0 16px 32px -18px var(--accent)}
-.ways .way[data-book] b{color:rgba(255,255,255,.72)}
-.ways .way[data-book] span{color:#fff;font-size:17px;font-weight:600}
-.ways .way[data-book]::after{content:"";position:absolute;right:22px;top:50%;width:9px;height:9px;
-  border-right:2.5px solid #fff;border-top:2.5px solid #fff;
-  transform:translateY(-50%) rotate(45deg);transition:transform .18s}
-.ways .way[data-book]:hover{border-color:var(--accent);box-shadow:0 22px 40px -18px var(--accent)}
-.ways .way[data-book]:hover::after{transform:translateY(-50%) translateX(4px) rotate(45deg)}
-@media (min-width:640px){.ways .way[data-book]{grid-column:1 / -1}}
-.way b{display:block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
-.way span{display:block;margin-top:6px;color:var(--ink);font-weight:600;font-size:15.5px;word-break:break-word}
-.ph{color:var(--ink-3);font-weight:500}
-
-.stickycta{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
-  background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);
-  border-top:1px solid var(--line);display:flex;gap:12px;align-items:center}
-.stickycta .txt{font-size:13px;color:var(--ink-2);line-height:1.3}
-.stickycta .btn{margin-left:auto;flex:0 0 auto;padding:12px 18px}
-@media (min-width:820px){.stickycta{display:none}}
-body{padding-bottom:80px}
-@media (min-width:820px){body{padding-bottom:0}}
-
-footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;color:var(--ink-3)}
+footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:13.5px;color:var(--ink-3)}
 .foot{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.stickycta{position:fixed;left:0;right:0;bottom:0;z-index:60;
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:color-mix(in srgb,var(--bg) 93%,transparent);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);display:flex;gap:12px;align-items:center}
+.stickycta .txt{font-size:13px;color:var(--ink-2);line-height:1.3}
+.stickycta .btn{margin-left:auto;width:auto;flex:0 0 auto;padding:12px 18px;font-size:14px;min-height:44px}
+@media (min-width:820px){.stickycta{display:none}}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<nav class="nav">
-  <div class="wrap nav-in">
-    <a class="brand" href="#top"><i></i>Michael Fadaous</a>
-    <a class="btn" href="#contact" data-book data-plan="nav">Book a call</a>
-  </div>
-</nav>
+<!-- 1 · HERO -->
+<header class="wrap hero">
+  <p class="lab">Encore &middot; Kuala Lumpur &middot; 6 Oct &ndash; 5 Nov</p>
+  <h1>You keep paying full price for <em>first posts</em>.</h1>
+  <p class="sell">A creator posts for you once, it works, and you never hear from them again. So next month you start over with someone new, at full price, and call it a content budget.</p>
+  <div class="cta"><a class="btn" href="#book" data-book data-plan="hero">Book the 20-minute call &rarr;</a></div>
+  <p class="after">Bring five creators you've paid this year. You'll leave knowing what that spend actually bought, whether we work together or not.</p>
 
-<!-- 1. INTRODUCTION -->
-<header id="top" class="wrap sec"><div class="glow"></div>
-  <div class="hero">
-    <div class="eyebrow">Michael Fadaous &middot; I do systems for a living</div>
-    <h1 style="margin-top:14px">Influencer marketing that <span class="mark">keeps selling</span> after I leave.</h1>
-
-    <div class="hero-video">
-      <video controls playsinline preload="metadata" poster="intro-poster.jpg"
-             aria-label="Michael Fadaous explains how the creator system works">
-        <source src="intro.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <p class="lead">Over $100,000 generated through this system, <span class="mark">from a single brand</span>. I install it inside yours, train your team, and hand it over.</p>
-    <div class="btns">
-      <a class="btn" href="#contact" data-book data-plan="hero">Book my free call</a>
-      <a class="btn ghost" href="#plans">See the plans</a>
-    </div>
+  <div class="trust">
+    <div><div class="t">Built for</div><div class="v">Malaysian DTC brands</div></div>
+    <div><div class="t">Installed in</div><div class="v">10 days</div></div>
+    <div><div class="t">Guarantee</div><div class="v">90 days, or refunded</div></div>
   </div>
 </header>
 
-<!-- proof figures -->
-<div class="wrap" style="padding-bottom:52px">
-  <div class="figs">
-    <div>
-      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></span>
-      <div class="v">$100K+</div><div class="k">Generated for <b>one brand</b> through this system</div>
-    </div>
-    <div>
-      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg></span>
-      <div class="v">Runs itself</div><div class="k">Written steps and named owners, so the channel never waits to be pushed</div>
-    </div>
-    <div class="hi">
-      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></span>
-      <div class="v">30 days</div><div class="k">Make your money back, or I refund it</div>
-    </div>
-  </div>
-</div>
+<hr class="rule">
 
-<!-- 2. CORE MESSAGE -->
-<section class="sec" style="background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="eyebrow">What changes</div>
-    <h2 style="margin-top:12px;max-width:24ch">Creators are not the campaign. They are the creative.</h2>
-    <p class="lead" style="max-width:52ch">The money comes from the system behind them. This is the one I built, ran, and still use.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="n">1</div>
-        <h3>Videos you can actually run as ads</h3>
-        <p>Briefed to your tone, your hooks and your format, instead of whatever the creator felt like posting.</p>
-      </div>
-      <div class="card">
-        <div class="n">2</div>
-        <h3>New creative landing every month</h3>
-        <p>So your ad account never runs out of angles to test, and performance stops dying with one tired video.</p>
-      </div>
-      <div class="card">
-        <div class="n">3</div>
-        <h3>You know which video deserves budget</h3>
-        <p>Every creative tied to the revenue it produced, so you scale the winner instead of spreading spend evenly.</p>
-      </div>
-      <div class="card">
-        <div class="n">4</div>
-        <h3>Outreach that lands the right creators</h3>
-        <p>A filter and a script your team runs weekly, so the right creators say yes for product alone.</p>
-      </div>
+<!-- 2 · THE PROBLEM -->
+<section class="wrap sec">
+  <h2 class="sh">The leak</h2>
+  <p class="pull">Every post you buy is a first post. The most expensive kind there is.</p>
+  <div class="body-2">
+    <p>You pay a creator. They post. Sales move. Then nothing, because nobody owns the follow-up, there's no system that brings them back, and the person who'd chase it is already onto next month's campaign.</p>
+    <p>Meanwhile you can't tell which creator actually made money, because none of them carry a code. So the budget gets defended on vibes, and the brand keeps buying strangers.</p>
+  </div>
+
+  <div class="compare">
+    <div class="col now">
+      <div class="h">How it runs now</div>
+      <ul>
+        <li>Creator posts once, then disappears</li>
+        <li>No code, no link, no idea who earned what</li>
+        <li>Deals die because someone forgot to follow up</li>
+        <li>Product ships and nothing comes back</li>
+        <li>"Post soon" instead of a date</li>
+        <li>It stops the week one person is away</li>
+      </ul>
+    </div>
+    <div class="col aft">
+      <div class="h">After ten days</div>
+      <ul>
+        <li>One named person owns it, with a written process</li>
+        <li>Every creator carries a code, so revenue has a name on it</li>
+        <li>A board where the cards move themselves</li>
+        <li>Nothing ships until the brief is locked</li>
+        <li>An exact posting date, every time</li>
+        <li>It survives someone going on leave</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- story + video -->
-<section class="sec">
-  <div class="wrap">
-    <div class="story">
-      <div>
-        <div class="eyebrow">Why I built this</div>
-        <h2 style="margin-top:12px;max-width:20ch">I built it for my own brand. Then for others.</h2>
-        <p style="margin-top:16px">Creators used to be a guess. I turned it into a system, and it has run ever since.</p>
-        <p>Now I install that same system inside other brands and teach the team to run it exactly the way I do.</p>
-        <p class="pullq">I do not hand you theory. I hand you the system I use myself.</p>
-      </div>
+<hr class="rule">
 
-      <div>
-        <div class="storyshot">
-          <img src="story.jpg" alt="Michael and his team packing creator orders at TAPE IT">
+<!-- 3 · THE 20-MINUTE CALL -->
+<section class="wrap sec">
+  <div class="call">
+    <div class="hd">The 20-minute call</div>
+    <div class="bd">
+      <p class="big">Bring five creators you've paid this year.</p>
+      <ol>
+        <li>Send the handles, their follower counts, roughly what each post got in likes and comments, and what you paid them</li>
+        <li>I score all five live on the call: engagement rate, cost per engagement, and a verdict on each</li>
+        <li>You'll see exactly what share of that spend went to creators that can't be justified on any measure</li>
+        <li>You keep that answer whether you buy anything or not</li>
+      </ol>
+      <div class="go"><a class="btn" href="#book" data-book data-plan="call">Book the call &rarr;</a></div>
+      <p class="fine">Also bring your average order value and your gross margin. Those two numbers decide what I can tell you.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- 4 + 5 · WHAT GETS INSTALLED, AND THE PRICE -->
+<section class="wrap sec">
+  <h2 class="sh">Everything you get</h2>
+  <p style="max-width:62ch;margin-bottom:22px">Sixteen pieces. Each one is sold on its own to brands who only want that piece. The price beside it is what it costs alone.</p>
+
+  <div class="receipt">
+    <div class="rhead"><span class="t">The Encore Install</span><span class="lab">Built in your accounts, in your name</span></div>
+
+    <div class="rl grp"><span class="n">The method &mdash; seven procedures</span><span class="v"></span></div>
+    <div class="rl"><span class="n"><b>The Rulebook</b> &mdash; your operating model, lifecycle and daily rhythm</span><span class="v">980</span></div>
+    <div class="rl"><span class="n"><b>Creator acquisition + scorecard</b> &mdash; where your creators are, and who to skip</span><span class="v">1,280</span></div>
+    <div class="rl"><span class="n"><b>Outreach &amp; follow-up scripts</b> &mdash; English and Bahasa, every angle</span><span class="v">1,880</span></div>
+    <div class="rl"><span class="n"><b>Negotiation &amp; deal closing</b> &mdash; every objection, with the reply</span><span class="v">1,280</span></div>
+    <div class="rl"><span class="n"><b>Commission structure</b> &mdash; your rate, calculated from your own margin</span><span class="v">980</span></div>
+    <div class="rl"><span class="n"><b>Post-deal execution</b> &mdash; through to a locked posting date, never "soon"</span><span class="v">980</span></div>
+    <div class="rl"><span class="n"><b>Consistency &amp; re-engagement</b> &mdash; the 2nd, 3rd and 4th post</span><span class="v">1,280</span></div>
+
+    <div class="rl grp"><span class="n">Where the work happens</span><span class="v"></span></div>
+    <div class="rl"><span class="n"><b>Trello board</b>, built in your workspace with automation live</span><span class="v">1,280</span></div>
+    <div class="rl"><span class="n"><b>Drive setup</b> with automations &mdash; your content, owned and findable</span><span class="v">780</span></div>
+    <div class="rl"><span class="n"><b>Creator Lock Survey</b> &mdash; the brief locks before anything ships</span><span class="v">980</span></div>
+
+    <div class="rl grp"><span class="n">Knowing what works</span><span class="v"></span></div>
+    <div class="rl"><span class="n"><b>Per-creator tracking</b> &mdash; a code and a link each, earnings tracked</span><span class="v">1,680</span></div>
+    <div class="rl"><span class="n"><b>Weekly 7-day report</b> &mdash; the method is yours; the portal generates it for you</span><span class="v">880</span></div>
+    <div class="rl"><span class="n"><b>Winning creative replication</b> &mdash; what sells, turned into a repeatable brief</span><span class="v">1,280</span></div>
+    <div class="rl"><span class="n"><b>Ads decision engine</b> &mdash; scale, keep, fix or kill, with the budget numbers</span><span class="v">1,280</span></div>
+
+    <div class="rl grp"><span class="n">Growing it</span><span class="v"></span></div>
+    <div class="rl"><span class="n"><b>Event strategy per moment</b> &mdash; Black Friday, 11.11, Raya, CNY</span><span class="v">1,280</span></div>
+    <div class="rl"><span class="n"><b>Quarterly scaling plan</b> &mdash; what to add, and in what order</span><span class="v">1,880</span></div>
+
+    <div class="rl grp"><span class="n">Your people</span><span class="v"></span></div>
+    <div class="rl"><span class="n"><b>4 training sessions (8 hours)</b> + a recorded handover you keep</span><span class="v">3,520</span></div>
+    <div class="rl free"><span class="n"><b>Creator Hub</b> &mdash; your own portal, configured for your business, free for months 1&ndash;3</span><span class="v">684</span></div>
+
+    <div class="rtot"><span class="n">What this is worth</span><span class="v">RM 24,184</span></div>
+    <div class="rstrike"><s>RM 24,184</s></div>
+
+    <div class="price">
+      <div class="k">The install &mdash; paid once</div>
+      <div class="fig">RM 9,800</div>
+      <p class="sub">Paid once, before day one. No commission on your sales, no licence fee, and nothing recurring attached to the install itself. It is built in your own accounts and stays yours whatever happens to me.</p>
+
+      <div class="found">
+        <div class="fk">
+          <span class="rn">Founding price &mdash; two brands</span>
+          <span class="slots">Expires 5 Nov &middot; does not return</span>
         </div>
-        <p style="margin-top:12px;font-size:14px;color:var(--ink-3)">Packing creator orders at TAPE IT, Lebanon.</p>
+        <div class="ffig">RM 7,800</div>
+        <p class="fd">I am installing the first two of these in Malaysia, and afterwards I want two brands I can name. That is the entire reason for the price: not a discount, a trade. You get RM 2,000 off; I get a result I can point at and permission to say your name.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- proof -->
-<section class="sec proofsec">
-  <div class="wrap">
-    <h2 class="big-h">Success stories</h2>
-    <div class="shots">
-      <figure>
-        <span class="src">Meta Ads Manager</span>
-        <div class="shotstat"><b>$7,957</b><span>tracked revenue in 30 days</span></div>
-        <p class="ownline">The $100,000 above is what this system has produced for TAPE IT over time. What follows is <b>one ordinary month inside it</b>, exported straight from the account, so you can see how it runs rather than take the headline on trust.</p>
-        <figcaption>TAPE IT &middot; 1&ndash;30 April 2026 &middot; Meta Ads Manager export</figcaption>
+<hr class="rule">
 
-        <div class="metrics">
-          <div class="key"><div class="m">Return on ad spend</div><div class="n">3.08&times;<small>every $1 in returned $3.08</small></div></div>
-          <div><div class="m">Ad spend</div><div class="n">$2,580<small>turned into $7,957</small></div></div>
-          <div><div class="m">Purchases</div><div class="n">260<small>at $9.92 each</small></div></div>
-          <div><div class="m">Average order</div><div class="n">$30.60<small>3x what it cost to win</small></div></div>
-          <div><div class="m">Click-through rate</div><div class="n">0.61%<small>7,879 clicks at $0.33</small></div></div>
-          <div><div class="m">Best performing creator</div><div class="n">5.10&times;<small>$69 spend returned $353</small></div></div>
-        </div>
-
-        <p class="anchor">A brand on 50&ndash;65% gross margin breaks even somewhere between 2.0&times; and 1.5&times;. Every campaign below was scaled or killed against that number, not against a feeling.</p>
-
-        <div class="frame"><img src="proof-ads-april.jpg" alt="Meta Ads Manager ad-level view for 1 to 30 April 2026, 16 creator ads totalling $7,957.24 in purchase conversion value"></div>
-      </figure>
-
-      <figure>
-        <span class="src">Affiliate dashboard</span>
-        <div class="shotstat"><b>$526.99</b><span>from one creator, in one month</span></div>
-        <figcaption>One creator, joined late March 2026: 25 tracked sales, $526.99 revenue and $74.59 commission owed, every order tied back to her own link.</figcaption>
-        <div class="frame"><img src="proof-affiliate.jpg" alt="Affiliate dashboard showing one creator's tracked sales, revenue and commission"></div>
-      </figure>
+<!-- 6 · THE GUARANTEE -->
+<section class="wrap sec">
+  <h2 class="sh">The guarantee</h2>
+  <div class="two">
+    <div class="c acc">
+      <h4>Your money back in full</h4>
+      <p>If Encore hasn't generated at least what you paid for it <b>within 90 days of handover</b>, I refund you in full.</p>
+      <p>Two conditions, both of them yours to control, and both set up with you before I leave:</p>
+      <ol>
+        <li>You onboard at least <b>N</b> creators through the pipeline in those 90 days, where <code>N = max(10, fee &divide; (8 &times; your AOV))</code>, <b>usually ten</b></li>
+        <li>The tracking codes stay live</li>
+      </ol>
     </div>
-
-    <div class="ctaband">
-      <h3>Your creator department already exists. Nobody is running it.</h3>
-      <p>It takes 20 minutes of your time, and you leave knowing exactly what your creator channel could be producing.</p>
-      <a class="btn" href="#contact" data-book data-plan="proof">Book my free call</a>
+    <div class="c br">
+      <h4>What ten creators actually has to do</h4>
+      <p>At an average order of RM 145, ten creators averaging <b>eight orders each</b> over 90 days brings in RM 11,600. More than the fee, before a single repeat purchase.</p>
+      <p>Eight orders. Across three months. From a creator who has your product, your code, and a brief they confirmed themselves.</p>
+      <p><b>If you don't believe ten creators can average eight orders each, don't buy this.</b> I'd genuinely rather you didn't, because that's the same thing as telling me you won't switch the system on.</p>
     </div>
   </div>
 </section>
 
-<!-- who it's for -->
-<section class="sec">
-  <div class="wrap">
-    <div class="eyebrow">Who it's for</div>
-    <h2 style="margin-top:12px;max-width:24ch">Any business that wants awareness that turns into sales.</h2>
-    <div class="chips">
-      <span>E-commerce &amp; DTC</span>
-      <span>Restaurants &amp; F&amp;B</span>
-      <span>Beauty, salons &amp; clinics</span>
-      <span>Gyms &amp; supplements</span>
-      <span>Marketing agencies</span>
-      <span>Retail &amp; local chains</span>
-    </div>
-    <p class="qual">You need three things: a product people already buy, margin you can share with a creator, and one person who will own this after I leave. That's it.</p>
-  </div>
-</section>
+<hr class="rule">
 
-<!-- 3. PLANS -->
-<section id="plans" class="sec" style="background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="eyebrow">An investment, not a cost</div>
-    <h2 style="margin-top:12px;max-width:22ch">Every one of these ends with a department you own.</h2>
-    <p class="lead" style="max-width:52ch">They differ in one thing only: how far I go with you.</p>
-    <ul class="ladder">
-      <li><span class="e">01</span><span class="t"><b>Blueprint</b> hands you the system, documented and ready to run.</span></li>
-      <li><span class="e">02</span><span class="t"><b>Engine</b> builds it into your business and switches it on.</span></li>
-      <li><span class="e">03</span><span class="t"><b>Department</b> runs it beside your manager until your team can do it alone.</span></li>
+<!-- 7 · WHO THIS ISN'T FOR -->
+<section class="wrap sec">
+  <h2 class="sh">Who this isn't for</h2>
+  <div class="c">
+    <ul>
+      <li><b>Nobody in-house to run it.</b> This installs a department, it doesn't become one by itself</li>
+      <li><b>That person has under 30 minutes a day.</b> The system is light, but it isn't free</li>
+      <li><b>You want me to run it for you.</b> That's an agency, and it puts you back where you started</li>
+      <li><b>You can't tell me your average order value.</b> The guarantee is built on it, so we can't write one</li>
     </ul>
-    <div class="plans">
-      <div class="plan">
-        <h3><span class="pn">01</span>Blueprint</h3>
-        <div class="price"><s>RM 6,000</s>RM 4,800 <span class="save">20% off</span></div>
-        <p class="who">You have someone in-house who needs the method.</p>
-        <ul>
-          <li>The Rulebook: your operating model and daily rhythm</li>
-          <li>Creator acquisition: where your creators are, and who to skip</li>
-          <li>Outreach and follow-up scripts, English and Bahasa</li>
-          <li>Negotiation and deal closing, rates from your own margin</li>
-          <li>Post-deal execution, from shipping to a locked posting date</li>
-          <li>Trello board built in your workspace, automation live</li>
-          <li>4 hours training and a recorded handover</li>
-        </ul>
-        <a class="btn ghost" href="#contact" data-book data-plan="blueprint">Start with Blueprint</a>
-      </div>
-      <div class="plan best">
-        <div class="tag">Most brands start here</div>
-        <h3><span class="pn">02</span>Engine</h3>
-        <div class="price"><s>RM 12,571</s>RM 8,800 <span class="save">30% off</span></div>
-        <p class="who">You have someone ready to own it.</p>
-        <ul>
-          <li>Everything in Blueprint</li>
-          <li>Consistency and re-engagement: the second, third and fourth post</li>
-          <li>Per-creator tracking: a code and link each, and what every creator earned</li>
-          <li>Creator Lock Survey, so the brief locks before anything ships</li>
-          <li>Drive setup with automations</li>
-          <li>Weekly 7-day report your manager runs alone</li>
-          <li>8 hours training and consultations</li>
-          <li><b>Carries the 30 day guarantee</b></li>
-        </ul>
-        <a class="btn" href="#contact" data-book data-plan="engine">Start with Engine</a>
-      </div>
-      <div class="plan">
-        <h3><span class="pn">03</span>Department</h3>
-        <div class="price"><s>RM 38,000</s>RM 22,800 <span class="save">40% off</span></div>
-        <p class="who">Budget, and a person to build the department around.</p>
-        <ul>
-          <li>Everything in Engine, set up for you</li>
-          <li>Weekly sessions beside your manager for 3 months</li>
-          <li>Winning creative replication: what sells, turned into a repeatable brief</li>
-          <li>Ads decision engine: scale, keep, fix or kill, with the budget numbers</li>
-          <li>Event strategy per moment: Black Friday, 11.11, Raya, CNY</li>
-          <li>Scaling plan across the quarter</li>
-          <li>24 hours training and certification</li>
-          <li><b>Carries the 30 day guarantee</b></li>
-        </ul>
-        <a class="btn ghost" href="#contact" data-book data-plan="department">Start with Department</a>
-      </div>
+    <p style="margin-top:14px">If any of those are true I'll say so on the call, and we'll both save a month.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- 8 · FAQ -->
+<section class="wrap sec">
+  <h2 class="sh">Questions</h2>
+
+  <details>
+    <summary>Why you, and not an agency?</summary>
+    <div class="a"><p>An agency keeps the machine. Stop paying them and you own nothing: not the process, not the creator relationships, not the data. Encore is the opposite trade. I build it inside your accounts, train your person to run it, and leave. The day we stop speaking, everything still works.</p></div>
+  </details>
+
+  <details>
+    <summary>Could we just build this ourselves?</summary>
+    <div class="a"><p>Yes. It took me a year and a lot of expensive mistakes, and the parts that matter are the ones that aren't obvious until you've lost money on them: the day-five call, the brief that locks before shipping, the stop rule on follow-ups. You're buying the year, not the documents.</p></div>
+  </details>
+
+  <details>
+    <summary>What exactly do I own afterwards?</summary>
+    <div class="a"><p>All of it, in your own accounts. The seven procedures, the Trello board and its automations, the scripts in both languages, the Creator Lock Survey, the revenue tracker, the ads decision engine and the report templates. Your content sits in your own Google Drive, never mine. There is no account of mine to be removed from.</p></div>
+  </details>
+
+  <details>
+    <summary>How much time does my team need?</summary>
+    <div class="a"><p>Thirty to sixty minutes a day from the person who owns it, once it's running. During the ten days, more. If nobody in the business has that half hour, I'll tell you on the call and decline the work, because the guarantee depends on the system actually being switched on.</p></div>
+  </details>
+
+  <details>
+    <summary>What's the Creator Hub, and what happens after three months?</summary>
+    <div class="a">
+      <p>It's your own portal: every creator has a login, signs themselves up, sees their briefs and deliverables and what they've earned. Content uploads land straight in your Drive, and your weekly and monthly reports build themselves from what's already in there. It's configured during the ten days and <b>your creators are signed in before I leave.</b></p>
+      <p>Months one to three are included. From month four it's <b>RM 228 a month</b>, or <b>RM 2,280 for the year</b> if you'd rather settle it on handover day. No per-seat charge, no cap on creators, cancel whenever. Stop paying and the system still runs, your manager just runs the reports by hand again.</p>
     </div>
-  </div>
+  </details>
+
+  <details>
+    <summary>Do I pay creators cash?</summary>
+    <div class="a"><p>Moving them off cash fees and onto commission is a core part of the install. You'll have the objection library for the conversation, including the one that starts "I only work for cash". Your rate comes out of your own gross margin, so it stays affordable at any volume rather than being copied from another brand's economics.</p></div>
+  </details>
+
+  <details>
+    <summary>I sell on TikTok Shop. Does that change anything?</summary>
+    <div class="a"><p>It changes the maths, not the method. TikTok Shop takes roughly 18.9% plus RM 0.54 per order before your creator commission, so your commission rate has to be calculated after that, not before. We do it on the call from your own numbers.</p></div>
+  </details>
+
+  <details>
+    <summary>When can you actually start?</summary>
+    <div class="a"><p>I'm in Kuala Lumpur from 6 October to 5 November, and I take two installs at a time. The install runs ten days, so book the call early in that window if you want it finished while I'm still in the country.</p></div>
+  </details>
 </section>
 
-<!-- guarantee -->
-<div class="wrap sec">
-  <div class="guar">
-    <span class="badge">30 day guarantee &middot; Engine &amp; Department</span>
-    <h2>It pays for itself in 30 days. Or I give it all back.</h2>
-    <p>No credit. No rescope. The full fee, returned.</p>
-    <p class="fine">Two conditions, both yours to control: onboard the minimum number of creators we agree on, and keep tracking live. Blueprint is the method handed over, so it does not carry the guarantee.</p>
-  </div>
-</div>
+<!-- 9 · CLOSE -->
+<section id="book" class="wrap sec">
+  <div class="close">
+    <h2>One call. Five creators. One honest answer.</h2>
+    <p>Bring the handles and what you paid. You'll leave knowing what that spend bought, and whether a system would have changed it, whether you hire me or not.</p>
+    <div style="margin-top:22px"><a class="btn" href="#book" data-book data-plan="close">Book the 20-minute call &rarr;</a></div>
 
-<!-- 4. FAQ -->
-<section class="sec" style="background:var(--tint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="eyebrow">FAQ</div>
-    <h2 style="margin-top:12px;margin-bottom:26px">Straight answers.</h2>
-    <details open>
-      <summary>Will you find the creators for us?</summary>
-      <p>No, and that's on purpose. If I find them, I become your pipeline and it dies when I leave. I teach your person to find them, sitting next to them, on real creators, until they can do it alone.</p>
-    </details>
-    <details>
-      <summary>We have no creators yet. Too early?</summary>
-      <p>It's the cheapest time to start. You build your first group on top of a system instead of forcing one onto old habits later. You just need one person who will own it.</p>
-    </details>
-    <details>
-      <summary>What do you need from us?</summary>
-      <p>Six to twenty four hours of your time depending on the plan, access to your own order data, and that one owner. Everything stays in your accounts and your logins.</p>
-    </details>
-    <details>
-      <summary>What happens after you leave?</summary>
-      <p>You keep all of it. The board, the scripts, the scorecards, the commission model, and a team trained to run them. Nothing switches off when I stop invoicing.</p>
-    </details>
-    <details>
-      <summary>Why work with someone based in Lebanon?</summary>
-      <p>Because I'm handing you a system, not a contact list. The margin maths and the process work the same anywhere. Your team already knows the local creators better than I ever will, and I come to you in person for the training.</p>
-    </details>
-  </div>
-</section>
-
-<!-- 5. CONTACT -->
-<section id="contact" class="wrap sec">
-  <div class="contact">
-    <div class="eyebrow">Get in touch</div>
-    <h2 style="margin-top:12px;max-width:24ch">Twenty minutes from a creator pipeline that costs you product, not fees.</h2>
-    <p class="lead" style="max-width:52ch">Tell me what you sell and who buys it. You leave with the outreach angle that gets the right creators saying yes for product alone, and how their videos become ads that scale. Yours whether you hire me or not.</p>
     <div id="cal-inline" class="calwrap" hidden>
       <div class="calhead"><b>Pick a time</b><span>20 minutes &middot; Google Meet &middot; free</span></div>
       <div class="calbody"></div>
-    </div>
-
-    <div class="ways">
-      <a class="way" href="#contact" data-book data-plan="contact">
-        <b>Book a call</b><span>Pick a time that suits you</span>
-      </a>
-      <a class="way" href="mailto:michaelfadaous000@gmail.com">
-        <b>Email</b><span>michaelfadaous000@gmail.com</span>
-      </a>
     </div>
   </div>
 </section>
@@ -641,23 +451,23 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:13.5px;col
 <footer>
   <div class="wrap foot">
     <span>Influencer marketing systems</span>
-    <span>I do systems for a living</span>
+    <span>Michael Fadaous &middot; I do systems for a living</span>
   </div>
 </footer>
 
+<div class="stickycta">
+  <span class="txt">20 minutes.<br>Five creators scored, live.</span>
+  <a class="btn" href="#book" data-book data-plan="sticky">Book now</a>
+</div>
+
 <script>
-/* Paste your Calendly or Google Calendar booking link between the quotes below.
-   Every Book and Start with button on the page then points to it and opens in a
-   new tab. Left empty, they scroll to the contact section as they do now. */
 var BOOKING_URL = "https://calendly.com/michaelfadaous000/30min";
 
 function wireBooking() {
   if (!BOOKING_URL) return;
-
   var els = document.querySelectorAll("[data-book]");
   var box = document.getElementById("cal-inline");
 
-  /* default everywhere: open the booking page in a new tab */
   function linkMode() {
     for (var i = 0; i < els.length; i++) {
       var el = els[i], u = BOOKING_URL, plan = el.getAttribute("data-plan");
@@ -665,8 +475,6 @@ function wireBooking() {
       el.href = u; el.target = "_blank"; el.rel = "noopener";
     }
   }
-
-  /* only once the scheduler is really on the page: scroll to it instead */
   function scrollMode() {
     for (var i = 0; i < els.length; i++) {
       els[i].href = "#cal-inline";
@@ -678,20 +486,16 @@ function wireBooking() {
   linkMode();
   if (!box) return;
 
-  /* Try to embed. Some hosts block Calendly's script, so the panel stays hidden
-     and the buttons keep opening a tab unless the widget actually loads. */
   var done = false;
   var sc = document.createElement("script");
   sc.src = "https://assets.calendly.com/assets/external/widget.js";
   sc.async = true;
-
   sc.onload = function () {
     if (done || !window.Calendly || !Calendly.initInlineWidget) return;
     done = true;
-    var host = box.querySelector(".calbody");
     var widget = document.createElement("div");
     widget.className = "calendly-inline-widget";
-    host.appendChild(widget);
+    box.querySelector(".calbody").appendChild(widget);
     Calendly.initInlineWidget({
       url: BOOKING_URL + "?hide_gdpr_banner=1&primary_color=005E8C&utm_source=site&utm_content=inline",
       parentElement: widget
@@ -699,11 +503,8 @@ function wireBooking() {
     box.hidden = false;
     scrollMode();
   };
-
   sc.onerror = function () { done = true; };
   document.body.appendChild(sc);
-
-  /* belt and braces: if it has not initialised in 6s, stay in link mode */
   setTimeout(function () { if (!done) { done = true; box.hidden = true; linkMode(); } }, 6000);
 }
 
@@ -713,10 +514,5 @@ if (document.readyState === "loading") {
   wireBooking();
 }
 </script>
-
-<div class="stickycta">
-  <span class="txt">20 minutes away from<br>elevating your creator department.</span>
-  <a class="btn" href="#contact" data-book data-plan="sticky">Book now</a>
-</div>
 </body>
 </html>
