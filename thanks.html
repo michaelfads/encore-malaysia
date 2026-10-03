@@ -267,6 +267,12 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .tcard q{display:block;margin-top:15px;font-size:15.5px;color:var(--ink-2);line-height:1.62;quotes:none}
 .tcard q::before,.tcard q::after{content:""}
 @media (min-width:800px){.tcard.wide{grid-column:1 / -1}}
+@media (min-width:900px){.tcards.three{grid-template-columns:repeat(3,1fr)}}
+.tcard .cs{margin:16px 0 0;display:grid;gap:12px}
+.tcard .cs dt{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3)}
+.tcard .cs dd{margin:5px 0 0;font-size:15px;color:var(--ink-2);line-height:1.55}
+.tcard .cs dd.out{color:var(--ink);font-weight:500}
 
 /* cta band */
 .ctaband{margin-top:30px;border:1px solid var(--line);border-radius:20px;padding:28px 24px;text-align:center;

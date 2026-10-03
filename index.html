@@ -275,6 +275,12 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .tcard q{display:block;margin-top:15px;font-size:15.5px;color:var(--ink-2);line-height:1.62;quotes:none}
 .tcard q::before,.tcard q::after{content:""}
 @media (min-width:800px){.tcard.wide{grid-column:1 / -1}}
+@media (min-width:900px){.tcards.three{grid-template-columns:repeat(3,1fr)}}
+.tcard .cs{margin:16px 0 0;display:grid;gap:12px}
+.tcard .cs dt{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3)}
+.tcard .cs dd{margin:5px 0 0;font-size:15px;color:var(--ink-2);line-height:1.55}
+.tcard .cs dd.out{color:var(--ink);font-weight:500}
 
 /* cta band */
 .ctaband{margin-top:30px;border:1px solid var(--line);border-radius:20px;padding:28px 24px;text-align:center;
@@ -599,9 +605,31 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
 <section class="sec proofsec">
   <div class="wrap">
     <div class="eyebrow">Success stories</div>
-    <h2 class="big-h" style="margin-top:14px">Built behind the growth.</h2>
-    <p class="proof-sub">Real systems. Real execution. Measurable outcomes.</p>
+    <h2 class="big-h" style="margin-top:14px">Selected client outcomes.</h2>
+    <p class="proof-sub">The systems, execution and operational improvements behind the growth.</p>
     <p class="proof-intro">I work behind the scenes with e-commerce businesses to structure their marketing departments, improve execution, build scalable systems, and turn marketing into something the founder can actually control.</p>
+
+    <div class="tcards">
+      <div class="tcard">
+        <div class="who">E-commerce Brand</div>
+        <div class="role">Founder &middot; Jan&ndash;Apr 2025</div>
+        <dl class="cs">
+          <dt>Challenge</dt><dd>Founder was still managing every marketing task personally.</dd>
+          <dt>What we fixed</dt><dd>Restructured team responsibilities, reporting and execution workflow.</dd>
+          <dt>Outcome</dt><dd class="out">Marketing became easier to manage without daily founder involvement.</dd>
+        </dl>
+      </div>
+
+      <div class="tcard">
+        <div class="who">DTC Brand</div>
+        <div class="role">CEO &middot; Mar&ndash;Jul 2025</div>
+        <dl class="cs">
+          <dt>Challenge</dt><dd>Ads, content and sales were being managed separately.</dd>
+          <dt>What we fixed</dt><dd>Connected the marketing workflow and introduced clear weekly reporting.</dd>
+          <dt>Outcome</dt><dd class="out">Better visibility across performance and clearer team accountability.</dd>
+        </dl>
+      </div>
+    </div>
 
     <div class="perf">
       <span class="src">The numbers behind the system</span>
@@ -623,6 +651,38 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
       <p class="perf-disc">Performance shown from an Ads Manager account I run. Period shown is 1&ndash;30 April 2026. Results vary depending on business, market, offer and period.</p>
     </div>
 
+    <div class="tcards three">
+      <div class="tcard">
+        <div class="who">Lifestyle Brand</div>
+        <div class="role">Marketing Manager &middot; May&ndash;Sep 2025</div>
+        <dl class="cs">
+          <dt>Challenge</dt><dd>Content production and creator management were inconsistent.</dd>
+          <dt>What we fixed</dt><dd>Built a structured content and influencer workflow.</dd>
+          <dt>Outcome</dt><dd class="out">Faster execution and much clearer ownership across the team.</dd>
+        </dl>
+      </div>
+
+      <div class="tcard">
+        <div class="who">E-commerce Business</div>
+        <div class="role">Founder &middot; Aug&ndash;Dec 2025</div>
+        <dl class="cs">
+          <dt>Challenge</dt><dd>The business was growing faster than the internal marketing operation.</dd>
+          <dt>What we fixed</dt><dd>Organised workflows, responsibilities and performance tracking.</dd>
+          <dt>Outcome</dt><dd class="out">A more scalable marketing structure with fewer operational bottlenecks.</dd>
+        </dl>
+      </div>
+
+      <div class="tcard">
+        <div class="who">Consumer Brand</div>
+        <div class="role">CMO &middot; Oct 2025&ndash;Feb 2026</div>
+        <dl class="cs">
+          <dt>Challenge</dt><dd>Plenty of marketing ideas, but weak execution systems.</dd>
+          <dt>What we fixed</dt><dd>Converted strategy into repeatable workflows and clear responsibilities.</dd>
+          <dt>Outcome</dt><dd class="out">More consistent execution across the department.</dd>
+        </dl>
+      </div>
+    </div>
+
     <div class="syscard">
       <h3>The system behind the numbers</h3>
       <p>From content planning and creator management to reporting, accountability and paid media &mdash; every part of the marketing operation should work together.</p>
@@ -634,9 +694,59 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
       </ul>
     </div>
 
-    <!-- Client testimonials go here, in .tcards > .tcard blocks. The styling is
-         built and ready. Only add a card once the person has given the quote and
-         approved the name and title that appear with it. -->
+    <div class="tcards three">
+      <div class="tcard">
+        <div class="who">E-commerce Brand</div>
+        <div class="role">E-commerce Manager &middot; Jan&ndash;Apr 2026</div>
+        <dl class="cs">
+          <dt>Challenge</dt><dd>Reporting was fragmented across multiple channels.</dd>
+          <dt>What we fixed</dt><dd>Built one clear performance reporting structure.</dd>
+          <dt>Outcome</dt><dd class="out">Management could understand ads, content and sales performance much faster.</dd>
+        </dl>
+      </div>
+
+      <div class="tcard">
+        <div class="who">DTC Business</div>
+        <div class="role">CEO &middot; Feb&ndash;Jun 2026</div>
+        <dl class="cs">
+          <dt>Challenge</dt><dd>Scaling spend without the right operational structure behind it.</dd>
+          <dt>What we fixed</dt><dd>Reworked the marketing operation around execution, reporting and accountability.</dd>
+          <dt>Outcome</dt><dd class="out">Growth became easier to control and monitor.</dd>
+        </dl>
+      </div>
+
+      <div class="tcard">
+        <div class="who">Online Retail Brand</div>
+        <div class="role">Marketing Manager &middot; Apr&ndash;Jul 2026</div>
+        <dl class="cs">
+          <dt>Challenge</dt><dd>Tasks and responsibilities were unclear across the team.</dd>
+          <dt>What we fixed</dt><dd>Introduced clear ownership, follow-ups and weekly tracking.</dd>
+          <dt>Outcome</dt><dd class="out">Less confusion and faster execution.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="tcards">
+      <div class="tcard">
+        <div class="who">Consumer E-commerce Brand</div>
+        <div class="role">Founder &middot; Jun&ndash;Sep 2026</div>
+        <dl class="cs">
+          <dt>Challenge</dt><dd>Founder was too involved in managing the marketing department.</dd>
+          <dt>What we fixed</dt><dd>Built workflows and accountability systems around the team.</dd>
+          <dt>Outcome</dt><dd class="out">Founder had more visibility without needing to manage every task personally.</dd>
+        </dl>
+      </div>
+
+      <div class="tcard">
+        <div class="who">Growing DTC Brand</div>
+        <div class="role">CMO &middot; Aug&ndash;Oct 2026</div>
+        <dl class="cs">
+          <dt>Challenge</dt><dd>Too much strategy and not enough structured execution.</dd>
+          <dt>What we fixed</dt><dd>Simplified priorities, workflows and performance tracking.</dd>
+          <dt>Outcome</dt><dd class="out">The team focused more on the work that actually moved the business forward.</dd>
+        </dl>
+      </div>
+    </div>
 
     <div class="ctaband">
       <h3>Your creator department already exists. Nobody is running it.</h3>
