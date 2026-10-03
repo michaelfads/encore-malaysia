@@ -344,18 +344,40 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .rtot .v{font-size:26px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.03em;white-space:nowrap}
 @media (min-width:700px){.rtot .v{font-size:30px}}
 
-.pricepanel{background:var(--guar);color:#fff;padding:28px 20px 30px;text-align:center}
-@media (min-width:800px){.pricepanel{padding:40px 30px 42px}}
-.pricepanel .k{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.75}
-.pricepanel .was{margin-top:12px;font-size:15px;opacity:.72;font-variant-numeric:tabular-nums}
-.pricepanel .was s{text-decoration-thickness:2px}
-.pricepanel .fig{font-size:52px;font-weight:700;line-height:1;letter-spacing:-.045em;margin-top:6px;
+.pricepanel{position:relative;overflow:hidden;color:#fff;padding:34px 20px 36px;text-align:center;
+  background:
+    radial-gradient(118% 92% at 50% 44%,transparent 40%,rgba(0,0,0,.32) 100%),
+    radial-gradient(68% 64% at 50% -6%,rgba(255,255,255,.22),transparent 64%),
+    linear-gradient(168deg,color-mix(in srgb,var(--guar) 78%,#fff) 0%,var(--guar) 44%,
+      color-mix(in srgb,var(--guar) 66%,#000) 100%)}
+@media (min-width:800px){.pricepanel{padding:52px 30px 54px}}
+.pricepanel::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.85%27 numOctaves=%274%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n%29%27/%3E%3C/svg%3E")}
+.pricepanel > *{position:relative;z-index:1}
+.pricepanel .k{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.72}
+
+/* the cut, shown rather than described: old price, arrow down, new price */
+.cut{margin-top:22px}
+.cut .lbl{display:block;font-size:10.5px;font-weight:700;letter-spacing:.17em;
+  text-transform:uppercase;opacity:.6}
+.cut .before s{display:inline-block;margin-top:8px;font-size:27px;font-weight:600;opacity:.62;
+  letter-spacing:-.03em;font-variant-numeric:tabular-nums;text-decoration-thickness:2px}
+@media (min-width:800px){.cut .before s{font-size:32px}}
+.cut .drop{width:1px;height:26px;margin:16px auto 18px;background:rgba(255,255,255,.3);position:relative}
+.cut .drop::after{content:"";position:absolute;left:-3.5px;bottom:-1px;width:8px;height:8px;
+  border-right:2px solid rgba(255,255,255,.55);border-bottom:2px solid rgba(255,255,255,.55);
+  transform:rotate(45deg)}
+.pricepanel .fig{font-size:54px;font-weight:700;line-height:1;letter-spacing:-.045em;margin-top:9px;
   font-variant-numeric:tabular-nums}
-@media (min-width:800px){.pricepanel .fig{font-size:80px}}
-.pricepanel .save{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.17);
+@media (min-width:800px){.pricepanel .fig{font-size:82px}}
+.pricepanel .save{display:inline-block;margin-top:16px;font-size:11.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.18);
   padding:7px 14px;border-radius:99px}
-.pricepanel .sub{margin:14px auto 0;font-size:15px;line-height:1.6;opacity:.92;max-width:48ch}
+.getline{margin:20px auto 0;max-width:34ch;font-size:19px;font-weight:600;line-height:1.4;
+  letter-spacing:-.015em}
+@media (min-width:800px){.getline{font-size:23px;max-width:30ch}}
+.pricepanel .sub{margin:14px auto 0;font-size:14.5px;line-height:1.6;opacity:.85;max-width:46ch}
 .btn.light{background:#fff;color:var(--guar);border-color:#fff;box-shadow:none;margin-top:22px}
 .btn.light:hover{background:#fff;opacity:.93}
 
