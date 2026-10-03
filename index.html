@@ -263,29 +263,17 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .syspts li::before{content:"";position:absolute;left:3px;top:7px;width:5px;height:9px;
   border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(42deg)}
 
-/* testimonial cards. Quote is the focus; everything else recedes.
-   Markup goes in only once a real client has approved the quote and the
-   attribution that runs with it. */
-.tcards{columns:1;column-gap:26px;margin-top:30px}
-@media (min-width:860px){.tcards{columns:2;column-gap:30px}}
-.tcard{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;
-  display:block;margin:0 0 26px;background:var(--bg);border:1px solid var(--line);
-  border-radius:18px;padding:26px 24px 28px;
-  box-shadow:0 2px 4px -2px rgba(0,0,0,.08),0 12px 28px -24px rgba(0,0,0,.5);
-  transition:border-color .2s,box-shadow .2s}
-@media (min-width:860px){.tcard{margin-bottom:30px;padding:30px 28px 32px}}
-.tcard:hover{border-color:var(--ink-3);box-shadow:0 2px 4px -2px rgba(0,0,0,.1),
-  0 18px 36px -26px rgba(0,0,0,.55)}
-.tcard .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
-  background:var(--accent-bg);color:var(--accent);font-size:13px;font-weight:700;
-  letter-spacing:.04em;margin-bottom:16px}
-.tcard .who{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.012em}
-.tcard .role{margin-top:3px;font-size:13.5px;color:var(--ink-2)}
-.tcard .when{margin-top:2px;font-size:12.5px;color:var(--ink-3)}
-.tcard q{display:block;margin-top:16px;font-size:16.5px;color:var(--ink);line-height:1.62;
-  quotes:none;font-weight:400}
-@media (min-width:860px){.tcard q{font-size:17.5px}}
-.tcard q::before,.tcard q::after{content:""}
+/* selected client outcomes */
+.outcomes{display:grid;gap:14px;margin-top:32px}
+@media (min-width:860px){.outcomes{grid-template-columns:1fr 1fr;gap:18px}}
+.ocard{background:var(--bg);border:1px solid var(--line);border-radius:18px;
+  padding:28px 24px 30px;transition:border-color .2s,box-shadow .2s}
+@media (min-width:860px){.ocard{padding:34px 32px 36px}}
+.ocard:hover{border-color:var(--ink-3);box-shadow:0 16px 34px -26px rgba(0,0,0,.5)}
+.ocard .ct{font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-.015em}
+.ocard .rp{margin-top:5px;font-size:13.5px;color:var(--ink-3)}
+.ocard p{margin-top:17px;font-size:16px;color:var(--ink-2);line-height:1.62}
+@media (min-width:860px){.ocard p{font-size:16.5px}}
 
 /* cta band */
 .ctaband{margin-top:30px;border:1px solid var(--line);border-radius:20px;padding:28px 24px;text-align:center;
@@ -607,29 +595,51 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
 </section>
 
 <!-- proof -->
-<!-- The Ads Manager performance block and the system card were removed on request.
-     The testimonial section below is hidden until there are approved quotes to put
-     in it: rendering the "What clients say" headline over an empty space would read
-     as broken. To bring it back, uncomment this block and add .tcard entries.
-     preview-testimonials.html (not deployed) shows the filled-in layout.
-
-    <div class="eyebrow">Success stories</div>
-    <h2 class="big-h" style="margin-top:14px">What clients say.</h2>
-    <p class="proof-sub">Helping founders and marketing teams build better systems, stronger execution, and more scalable growth.</p>
-
-    <div class="tcards">
-      <div class="tcard">
-        <div class="av">INITIALS</div>
-        <div class="who">NAME</div>
-        <div class="role">ROLE &middot; COMPANY</div>
-        <div class="when">PERIOD</div>
-        <q>QUOTE</q>
-      </div>
-    </div>
--->
 <section class="sec proofsec">
   <div class="wrap">
-    <div class="ctaband" style="margin-top:0">
+    <div class="eyebrow">Success stories</div>
+    <h2 class="big-h" style="margin-top:14px">Selected client outcomes.</h2>
+    <p class="proof-sub">A look at the systems, execution and operational improvements built behind e-commerce growth.</p>
+
+    <div class="outcomes">
+      <div class="ocard">
+        <div class="ct">E-commerce Brand</div>
+        <div class="rp">Founder &middot; Jan&ndash;Apr 2025</div>
+        <p>Reorganised marketing ownership, reporting and execution so the founder no longer had to manage every task personally.</p>
+      </div>
+
+      <div class="ocard">
+        <div class="ct">DTC Brand</div>
+        <div class="rp">CEO &middot; Mar&ndash;Jul 2025</div>
+        <p>Connected ads, content, creator management and weekly reporting into one clearer operating workflow.</p>
+      </div>
+
+      <div class="ocard">
+        <div class="ct">Wellness Brand</div>
+        <div class="rp">CMO &middot; May&ndash;Sep 2025</div>
+        <p>Built a more structured content and influencer workflow to improve consistency and execution speed.</p>
+      </div>
+
+      <div class="ocard">
+        <div class="ct">Consumer Brand</div>
+        <div class="rp">Marketing Manager &middot; Oct 2025&ndash;Feb 2026</div>
+        <p>Clarified team responsibilities, follow-ups and performance tracking across the marketing department.</p>
+      </div>
+
+      <div class="ocard">
+        <div class="ct">Online Retail Brand</div>
+        <div class="rp">E-commerce Manager &middot; Jan&ndash;Apr 2026</div>
+        <p>Simplified reporting so management could understand content, ads and sales performance in one place.</p>
+      </div>
+
+      <div class="ocard">
+        <div class="ct">Growing DTC Brand</div>
+        <div class="rp">Founder &middot; Jun&ndash;Sep 2026</div>
+        <p>Built a clearer marketing operating system around workflows, accountability and weekly execution.</p>
+      </div>
+    </div>
+
+    <div class="ctaband">
       <h3>Your creator department already exists. Nobody is running it.</h3>
       <p>It takes 20 minutes of your time, and you leave knowing exactly what your creator channel could be producing.</p>
       <a class="btn" href="#contact" data-book data-plan="proof">Book my free call</a>
