@@ -279,15 +279,15 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
   text-transform:uppercase;color:var(--ink-3)}
 .outs{display:grid;margin-top:16px;border-top:1px solid var(--line)}
 @media (min-width:760px){.outs{grid-template-columns:1fr 1fr;column-gap:54px}}
-.outs > div{position:relative;padding:19px 0 19px 52px;border-bottom:1px solid var(--line)}
-@media (min-width:760px){.outs > div{padding:22px 0 22px 56px}}
+.outs > div{position:relative;display:flex;align-items:baseline;gap:16px;
+  padding:16px 0;border-bottom:1px solid var(--line)}
+@media (min-width:760px){.outs > div{padding:18px 0}}
 /* numerals give the list a shape to read, without resorting to icons */
-.outs .num{position:absolute;left:0;top:18px;font-size:21px;font-weight:700;
-  color:var(--accent);opacity:.42;letter-spacing:-.04em;line-height:1;
-  font-variant-numeric:tabular-nums}
-@media (min-width:760px){.outs .num{top:21px;font-size:23px}}
-.outs h3{font-size:16.5px;font-weight:600;letter-spacing:-.015em}
-.outs p{margin-top:5px;font-size:15px;color:var(--ink-2);line-height:1.52;max-width:38ch}
+.outs .num{flex:0 0 auto;font-size:19px;font-weight:700;color:var(--accent);opacity:.42;
+  letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+@media (min-width:760px){.outs .num{font-size:21px}}
+.outs h3{font-size:17px;font-weight:600;letter-spacing:-.015em}
+@media (min-width:800px){.outs h3{font-size:18px}}
 
 .expend{margin-top:36px;max-width:52ch}
 .expend p{font-size:17.5px;line-height:1.65;color:var(--ink-2)}
@@ -654,22 +654,18 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
       <div>
         <span class="num">01</span>
         <h3>Less chasing</h3>
-        <p>Your team knows what needs to happen.</p>
       </div>
       <div>
         <span class="num">02</span>
         <h3>More visibility</h3>
-        <p>You know what is working and what is stuck.</p>
       </div>
       <div>
         <span class="num">03</span>
         <h3>Better execution</h3>
-        <p>Less talking about the work. More of it getting done.</p>
       </div>
       <div>
         <span class="num">04</span>
         <h3>More time to lead</h3>
-        <p>You stay in control without being in everything.</p>
       </div>
     </div>
 
