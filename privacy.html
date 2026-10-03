@@ -131,11 +131,14 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 /* value cards */
 .cards{display:grid;gap:12px;margin-top:30px}
 @media (min-width:700px){.cards{grid-template-columns:1fr 1fr}}
-.card{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--bg);transition:box-shadow .2s,transform .2s}
-.card:hover{box-shadow:0 14px 30px -22px rgba(0,0,0,.5);transform:translateY(-2px)}
-.card .n{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;
-  background:var(--accent-bg);color:var(--accent);font-size:13px;font-weight:700;margin-bottom:14px}
-.card p{margin-top:7px;font-size:15px}
+.card{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;background:var(--bg);transition:box-shadow .2s,transform .2s,border-color .2s}
+.card:hover{box-shadow:0 14px 30px -22px rgba(0,0,0,.5);transform:translateY(-2px);
+  border-color:color-mix(in srgb,var(--accent) 32%,var(--line))}
+.card .n{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:8px;background:var(--accent-bg);color:var(--accent);
+  font-size:13px;font-weight:700}
+.card h3{font-size:16.5px;line-height:1.35}
 
 /* story + video */
 /* native ratio of story.jpg (1000x1039) so the whole frame shows, nothing cropped */
