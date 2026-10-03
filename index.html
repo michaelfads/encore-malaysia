@@ -263,28 +263,32 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .syspts li::before{content:"";position:absolute;left:3px;top:7px;width:5px;height:9px;
   border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(42deg)}
 
-/* testimonial cards. Rendered from the TESTIMONIALS array at the bottom of
-   this file; nothing renders while that array is empty. */
-.tcards{columns:1;column-gap:26px;margin-top:32px}
-@media (min-width:860px){.tcards{columns:2;column-gap:30px}}
-.tcard{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;
-  display:block;margin:0 0 26px;background:var(--bg);border:1px solid var(--line);
-  border-radius:17px;padding:26px 24px 28px;
-  box-shadow:0 2px 4px -2px rgba(0,0,0,.07),0 12px 28px -24px rgba(0,0,0,.45);
-  transition:border-color .2s,box-shadow .2s}
-@media (min-width:860px){.tcard{margin-bottom:30px;padding:32px 30px 34px}}
-.tcard:hover{border-color:var(--ink-3);
-  box-shadow:0 2px 4px -2px rgba(0,0,0,.09),0 18px 36px -26px rgba(0,0,0,.5)}
-.tcard .hd{display:flex;align-items:center;gap:13px}
-.tcard .av{flex:0 0 auto;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
-  background:var(--accent-bg);color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.04em}
-.tcard .who{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.012em;line-height:1.3}
-.tcard .role{margin-top:2px;font-size:13.5px;color:var(--ink-2);line-height:1.35}
-.tcard .when{margin-top:10px;font-size:12.5px;color:var(--ink-3)}
-.tcard q{display:block;margin-top:16px;font-size:16.5px;color:var(--ink);line-height:1.62;
-  quotes:none;font-weight:400}
-@media (min-width:860px){.tcard q{font-size:17.5px}}
-.tcard q::before,.tcard q::after{content:""}
+/* built from experience: typography-led, no boxes */
+.exph{font-size:29px;letter-spacing:-.03em;line-height:1.16;max-width:19ch}
+@media (min-width:800px){.exph{font-size:46px;line-height:1.08;max-width:21ch}}
+.expcopy{margin-top:28px;max-width:60ch}
+.expcopy p{font-size:17px;line-height:1.7;color:var(--ink-2)}
+@media (min-width:800px){.expcopy p{font-size:17.5px}}
+.expcopy p + p{margin-top:18px}
+.expcopy b{color:var(--ink);font-weight:600}
+.expcopy .goal{margin-top:28px;padding-left:18px;border-left:2px solid var(--accent);
+  font-size:19px;line-height:1.5;color:var(--ink);font-weight:500}
+@media (min-width:800px){.expcopy .goal{font-size:22px}}
+
+.outs{display:grid;margin-top:48px;border-top:1px solid var(--line)}
+@media (min-width:760px){.outs{grid-template-columns:1fr 1fr;column-gap:58px}}
+.outs > div{padding:26px 0;border-bottom:1px solid var(--line)}
+@media (min-width:760px){.outs > div{padding:30px 0}}
+.outs h3{font-size:17px;font-weight:600;letter-spacing:-.015em}
+@media (min-width:800px){.outs h3{font-size:18px}}
+.outs p{margin-top:9px;font-size:15.5px;color:var(--ink-2);line-height:1.6;max-width:42ch}
+
+.expend{margin-top:46px;max-width:52ch}
+.expend p{font-size:17.5px;line-height:1.65;color:var(--ink-2)}
+.expend p + p{margin-top:14px}
+.expend .last{margin-top:20px;color:var(--ink);font-weight:600;font-size:21px;
+  line-height:1.38;letter-spacing:-.018em}
+@media (min-width:800px){.expend .last{font-size:25px}}
 
 /* cta band */
 .ctaband{margin-top:30px;border:1px solid var(--line);border-radius:20px;padding:28px 24px;text-align:center;
@@ -605,15 +609,44 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
   </div>
 </section>
 
-<!-- testimonials: built from the TESTIMONIALS array near the bottom of this
-     file. The section stays hidden until that array has at least one entry, so
-     nothing placeholder is ever shown. -->
-<section id="testimonials" class="sec proofsec" hidden>
+<!-- built from experience -->
+<section class="sec expsec">
   <div class="wrap">
-    <div class="eyebrow">Success stories</div>
-    <h2 class="big-h" style="margin-top:14px">What clients say.</h2>
-    <p class="proof-sub">Working behind the growth with founders and marketing teams.</p>
-    <div class="tcards" id="tcards"></div>
+    <div class="eyebrow">Built from experience</div>
+    <h2 class="exph" style="margin-top:14px">I built this because I was tired of being involved in everything.</h2>
+
+    <div class="expcopy">
+      <p>As the business grew, so did everything behind it. More people, more content, more creators, more follow ups and more things that needed my attention.</p>
+      <p>At some point, I realized the problem wasn&rsquo;t getting more ideas. <b>The problem was that too much still depended on me.</b></p>
+      <p>So I started fixing what was happening behind the scenes.</p>
+      <p>Clear ownership. Better follow ups. Simple reporting. Content that actually moves. Processes the team can follow without asking me what to do every time.</p>
+      <p class="goal">I wanted to know what&rsquo;s happening without having to be everywhere.</p>
+    </div>
+
+    <div class="outs">
+      <div>
+        <h3>Stop chasing the team</h3>
+        <p>Everyone knows what they own, what&rsquo;s due and what happens next.</p>
+      </div>
+      <div>
+        <h3>See what&rsquo;s actually happening</h3>
+        <p>Get the important information without asking five different people for updates.</p>
+      </div>
+      <div>
+        <h3>Keep things moving</h3>
+        <p>Content, campaigns and follow ups don&rsquo;t sit around waiting for someone to push them.</p>
+      </div>
+      <div>
+        <h3>Get your time back</h3>
+        <p>Stay in control without needing to be involved in every task.</p>
+      </div>
+    </div>
+
+    <div class="expend">
+      <p>That&rsquo;s what I&rsquo;m really building for you.</p>
+      <p>Not another complicated setup your team forgets about after two weeks.</p>
+      <p class="last">A business that can keep moving without everything depending on you.</p>
+    </div>
   </div>
 </section>
 
@@ -768,103 +801,6 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
 /* Paste your Calendly or Google Calendar booking link between the quotes below.
    Every Book and Start with button on the page then points to it and opens in a
    new tab. Left empty, they scroll to the contact section as they do now. */
-/* ===================================================================
-   REAL CLIENT TESTIMONIALS
-   ===================================================================
-   Add one object per client, below. Nothing renders while the list is
-   empty, so the section simply does not appear until there is something
-   real to put in it.
-
-   Fields:
-     name     the client's name, as they approved it
-     role     their job title
-     company  company or category, as they approved it
-     period   when the work ran
-     quote    their words, as they approved them
-
-   The initials in the avatar are generated from `name` automatically.
-   Add a client by uncommenting the example and filling it in, then run
-   ./build.sh "Add testimonial"
-   =================================================================== */
-var TESTIMONIALS = [
-
-  // {
-  //   name:    "",
-  //   role:    "",
-  //   company: "",
-  //   period:  "",
-  //   quote:   ""
-  // },
-
-];
-
-function testimonialInitials(name) {
-  var parts = String(name).trim().split(/\s+/).filter(Boolean);
-  if (!parts.length) return "";
-  var first = parts[0].charAt(0);
-  var last = parts.length > 1 ? parts[parts.length - 1].charAt(0) : "";
-  return (first + last).toUpperCase();
-}
-
-function renderTestimonials() {
-  var sec = document.getElementById("testimonials");
-  var host = document.getElementById("tcards");
-  if (!sec || !host) return;
-
-  var list = (TESTIMONIALS || []).filter(function (t) {
-    return t && t.name && t.quote;
-  });
-
-  if (!list.length) { sec.hidden = true; return; }
-
-  host.textContent = "";
-
-  list.forEach(function (t) {
-    var card = document.createElement("div");
-    card.className = "tcard";
-
-    var head = document.createElement("div");
-    head.className = "hd";
-
-    var av = document.createElement("div");
-    av.className = "av";
-    av.textContent = testimonialInitials(t.name);
-
-    var meta = document.createElement("div");
-    var who = document.createElement("div");
-    who.className = "who";
-    who.textContent = t.name;
-    meta.appendChild(who);
-
-    var line = [t.role, t.company].filter(Boolean).join(" \u00B7 ");
-    if (line) {
-      var role = document.createElement("div");
-      role.className = "role";
-      role.textContent = line;
-      meta.appendChild(role);
-    }
-
-    head.appendChild(av);
-    head.appendChild(meta);
-    card.appendChild(head);
-
-    if (t.period) {
-      var when = document.createElement("div");
-      when.className = "when";
-      when.textContent = t.period;
-      card.appendChild(when);
-    }
-
-    var q = document.createElement("q");
-    q.textContent = t.quote;
-    card.appendChild(q);
-
-    host.appendChild(card);
-  });
-
-  sec.hidden = false;
-}
-
 var BOOKING_URL = "https://calendly.com/michaelfadaous000/30min";
 
 /* ------------------------------------------------------------------
@@ -916,7 +852,6 @@ function wireCalendlyEvents() {
 
 loadPixel();
 wireCalendlyEvents();
-renderTestimonials();
 
 function wireBooking() {
   if (!BOOKING_URL) return;
