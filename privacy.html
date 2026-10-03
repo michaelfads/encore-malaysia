@@ -194,7 +194,6 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .ownline{margin-top:14px;font-size:16px;color:var(--ink);line-height:1.55;max-width:62ch;
   border-left:3px solid var(--accent);padding-left:16px}
 .ownline b{font-weight:700}
-@media (min-width:800px){.ownline{font-size:17px}}
 .big-h{font-size:40px;letter-spacing:-.04em;line-height:1;position:relative;display:inline-block}
 .big-h::after{content:"";display:block;height:4px;width:62px;margin-top:14px;border-radius:2px;
   background:var(--accent)}
@@ -219,24 +218,70 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .shots{display:grid;gap:22px;margin-top:30px;margin-bottom:22px}
 .shots figure{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:22px;
   padding:22px 20px;box-shadow:0 30px 64px -44px rgba(0,0,0,.6)}
-@media (min-width:800px){.shots figure{padding:30px}}
 .src{display:inline-flex;align-items:center;gap:7px;background:var(--accent-bg);color:var(--accent);
   border-radius:99px;padding:6px 13px;font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}
 .src::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .shotstat{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:16px}
 .shotstat b{font-size:44px;font-weight:700;color:var(--accent);letter-spacing:-.04em;line-height:1}
-@media (min-width:800px){.shotstat b{font-size:64px}}
 .shotstat span{font-size:16px;color:var(--ink);font-weight:600}
 .shots figcaption{margin-top:12px;font-size:14.5px;color:var(--ink-2);line-height:1.55;max-width:66ch}
 .shots .frame{margin-top:20px;border:1px solid var(--line);border-radius:14px;background:#fff;
   overflow:hidden;padding:6px}
 .shots .frame img{width:100%;height:auto;border-radius:9px}
 .quotes{display:grid;gap:12px;margin-top:12px}
-@media (min-width:700px){.quotes{grid-template-columns:1fr 1fr}}
 .quote{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--bg)}
 .quote p{color:var(--ink);font-size:15.5px}
 .quote .by{margin-top:14px;font-size:13.5px;color:var(--ink-3)}
 .quote .by b{display:block;color:var(--ink);font-size:14.5px;font-weight:600}
+
+/* success stories: performance block, system card, testimonial cards */
+.proof-sub{margin-top:20px;font-size:18px;color:var(--ink);font-weight:600;letter-spacing:-.012em}
+@media (min-width:800px){.proof-sub{font-size:21px}}
+.proof-intro{margin-top:12px;font-size:16px;color:var(--ink-2);line-height:1.62;max-width:64ch}
+
+.perf{margin-top:34px;border:1px solid var(--line);border-radius:22px;background:var(--bg);
+  padding:26px 20px 24px;box-shadow:0 30px 64px -44px rgba(0,0,0,.6);
+  transition:border-color .2s,box-shadow .2s}
+.perf:hover{border-color:color-mix(in srgb,var(--accent) 34%,var(--line))}
+@media (min-width:800px){.perf{padding:40px;border-radius:26px}}
+.perf-fig{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:18px}
+.perf-fig b{font-size:50px;font-weight:700;color:var(--accent);letter-spacing:-.045em;line-height:1;
+  font-variant-numeric:tabular-nums}
+@media (min-width:800px){.perf-fig b{font-size:76px}}
+.perf-fig span{font-size:16px;font-weight:600;color:var(--ink)}
+.perf-line{margin-top:12px;font-size:17px;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.perf-tag{margin-top:8px;font-size:13px;color:var(--ink-3)}
+.perf-note{margin-top:18px;font-size:14.5px;color:var(--ink-2);line-height:1.55;max-width:62ch;
+  border-left:3px solid var(--accent);padding-left:15px}
+.perf-note b{color:var(--ink);font-weight:700}
+.perf-disc{margin-top:18px;font-size:12px;color:var(--ink-3);line-height:1.5;max-width:70ch}
+
+.syscard{margin-top:14px;border:1px solid var(--line);border-radius:20px;padding:26px 22px;
+  background:var(--tint);transition:border-color .2s,transform .2s,box-shadow .2s}
+.syscard:hover{border-color:var(--ink-3);transform:translateY(-2px);
+  box-shadow:0 20px 40px -30px rgba(0,0,0,.6)}
+@media (min-width:800px){.syscard{padding:38px 40px;border-radius:24px}}
+.syscard h3{font-size:20px}
+@media (min-width:800px){.syscard h3{font-size:25px}}
+.syscard > p{margin-top:11px;font-size:15.5px;color:var(--ink-2);line-height:1.62;max-width:66ch}
+.syspts{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:11px}
+@media (min-width:640px){.syspts{grid-template-columns:1fr 1fr;gap:12px 28px}}
+.syspts li{position:relative;padding-left:27px;font-size:15px;color:var(--ink);font-weight:500}
+.syspts li::before{content:"";position:absolute;left:3px;top:7px;width:5px;height:9px;
+  border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(42deg)}
+
+/* testimonial cards. Markup goes in only once a real, named, approved quote exists. */
+.tcards{display:grid;gap:12px;margin-top:14px}
+@media (min-width:800px){.tcards{grid-template-columns:1fr 1fr}}
+.tcard{border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--bg);
+  transition:border-color .2s,box-shadow .2s,transform .2s}
+.tcard:hover{border-color:var(--ink-3);transform:translateY(-2px);
+  box-shadow:0 18px 38px -28px rgba(0,0,0,.6)}
+.tcard .who{font-size:16.5px;font-weight:700;color:var(--ink);letter-spacing:-.018em}
+.tcard .role{margin-top:4px;font-size:12.5px;color:var(--ink-3)}
+.tcard q{display:block;margin-top:15px;font-size:15.5px;color:var(--ink-2);line-height:1.62;quotes:none}
+.tcard q::before,.tcard q::after{content:""}
+@media (min-width:800px){.tcard.wide{grid-column:1 / -1}}
 
 /* cta band */
 .ctaband{margin-top:30px;border:1px solid var(--line);border-radius:20px;padding:28px 24px;text-align:center;
