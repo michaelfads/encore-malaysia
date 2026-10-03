@@ -263,17 +263,28 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .syspts li::before{content:"";position:absolute;left:3px;top:7px;width:5px;height:9px;
   border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(42deg)}
 
-/* selected client outcomes */
-.outcomes{display:grid;gap:14px;margin-top:32px}
-@media (min-width:860px){.outcomes{grid-template-columns:1fr 1fr;gap:18px}}
-.ocard{background:var(--bg);border:1px solid var(--line);border-radius:18px;
-  padding:28px 24px 30px;transition:border-color .2s,box-shadow .2s}
-@media (min-width:860px){.ocard{padding:34px 32px 36px}}
-.ocard:hover{border-color:var(--ink-3);box-shadow:0 16px 34px -26px rgba(0,0,0,.5)}
-.ocard .ct{font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-.015em}
-.ocard .rp{margin-top:5px;font-size:13.5px;color:var(--ink-3)}
-.ocard p{margin-top:17px;font-size:16px;color:var(--ink-2);line-height:1.62}
-@media (min-width:860px){.ocard p{font-size:16.5px}}
+/* testimonial cards. Rendered from the TESTIMONIALS array at the bottom of
+   this file; nothing renders while that array is empty. */
+.tcards{columns:1;column-gap:26px;margin-top:32px}
+@media (min-width:860px){.tcards{columns:2;column-gap:30px}}
+.tcard{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;
+  display:block;margin:0 0 26px;background:var(--bg);border:1px solid var(--line);
+  border-radius:17px;padding:26px 24px 28px;
+  box-shadow:0 2px 4px -2px rgba(0,0,0,.07),0 12px 28px -24px rgba(0,0,0,.45);
+  transition:border-color .2s,box-shadow .2s}
+@media (min-width:860px){.tcard{margin-bottom:30px;padding:32px 30px 34px}}
+.tcard:hover{border-color:var(--ink-3);
+  box-shadow:0 2px 4px -2px rgba(0,0,0,.09),0 18px 36px -26px rgba(0,0,0,.5)}
+.tcard .hd{display:flex;align-items:center;gap:13px}
+.tcard .av{flex:0 0 auto;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  background:var(--accent-bg);color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.04em}
+.tcard .who{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.012em;line-height:1.3}
+.tcard .role{margin-top:2px;font-size:13.5px;color:var(--ink-2);line-height:1.35}
+.tcard .when{margin-top:10px;font-size:12.5px;color:var(--ink-3)}
+.tcard q{display:block;margin-top:16px;font-size:16.5px;color:var(--ink);line-height:1.62;
+  quotes:none;font-weight:400}
+@media (min-width:860px){.tcard q{font-size:17.5px}}
+.tcard q::before,.tcard q::after{content:""}
 
 /* cta band */
 .ctaband{margin-top:30px;border:1px solid var(--line);border-radius:20px;padding:28px 24px;text-align:center;
@@ -594,52 +605,21 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
   </div>
 </section>
 
-<!-- proof -->
-<section class="sec proofsec">
+<!-- testimonials: built from the TESTIMONIALS array near the bottom of this
+     file. The section stays hidden until that array has at least one entry, so
+     nothing placeholder is ever shown. -->
+<section id="testimonials" class="sec proofsec" hidden>
   <div class="wrap">
     <div class="eyebrow">Success stories</div>
-    <h2 class="big-h" style="margin-top:14px">Selected client outcomes.</h2>
-    <p class="proof-sub">A look at the systems, execution and operational improvements built behind e-commerce growth.</p>
+    <h2 class="big-h" style="margin-top:14px">What clients say.</h2>
+    <p class="proof-sub">Working behind the growth with founders and marketing teams.</p>
+    <div class="tcards" id="tcards"></div>
+  </div>
+</section>
 
-    <div class="outcomes">
-      <div class="ocard">
-        <div class="ct">E-commerce Brand</div>
-        <div class="rp">Founder &middot; Jan&ndash;Apr 2025</div>
-        <p>Reorganised marketing ownership, reporting and execution so the founder no longer had to manage every task personally.</p>
-      </div>
-
-      <div class="ocard">
-        <div class="ct">DTC Brand</div>
-        <div class="rp">CEO &middot; Mar&ndash;Jul 2025</div>
-        <p>Connected ads, content, creator management and weekly reporting into one clearer operating workflow.</p>
-      </div>
-
-      <div class="ocard">
-        <div class="ct">Wellness Brand</div>
-        <div class="rp">CMO &middot; May&ndash;Sep 2025</div>
-        <p>Built a more structured content and influencer workflow to improve consistency and execution speed.</p>
-      </div>
-
-      <div class="ocard">
-        <div class="ct">Consumer Brand</div>
-        <div class="rp">Marketing Manager &middot; Oct 2025&ndash;Feb 2026</div>
-        <p>Clarified team responsibilities, follow-ups and performance tracking across the marketing department.</p>
-      </div>
-
-      <div class="ocard">
-        <div class="ct">Online Retail Brand</div>
-        <div class="rp">E-commerce Manager &middot; Jan&ndash;Apr 2026</div>
-        <p>Simplified reporting so management could understand content, ads and sales performance in one place.</p>
-      </div>
-
-      <div class="ocard">
-        <div class="ct">Growing DTC Brand</div>
-        <div class="rp">Founder &middot; Jun&ndash;Sep 2026</div>
-        <p>Built a clearer marketing operating system around workflows, accountability and weekly execution.</p>
-      </div>
-    </div>
-
-    <div class="ctaband">
+<section class="sec">
+  <div class="wrap">
+    <div class="ctaband" style="margin-top:0">
       <h3>Your creator department already exists. Nobody is running it.</h3>
       <p>It takes 20 minutes of your time, and you leave knowing exactly what your creator channel could be producing.</p>
       <a class="btn" href="#contact" data-book data-plan="proof">Book my free call</a>
@@ -788,6 +768,103 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
 /* Paste your Calendly or Google Calendar booking link between the quotes below.
    Every Book and Start with button on the page then points to it and opens in a
    new tab. Left empty, they scroll to the contact section as they do now. */
+/* ===================================================================
+   REAL CLIENT TESTIMONIALS
+   ===================================================================
+   Add one object per client, below. Nothing renders while the list is
+   empty, so the section simply does not appear until there is something
+   real to put in it.
+
+   Fields:
+     name     the client's name, as they approved it
+     role     their job title
+     company  company or category, as they approved it
+     period   when the work ran
+     quote    their words, as they approved them
+
+   The initials in the avatar are generated from `name` automatically.
+   Add a client by uncommenting the example and filling it in, then run
+   ./build.sh "Add testimonial"
+   =================================================================== */
+var TESTIMONIALS = [
+
+  // {
+  //   name:    "",
+  //   role:    "",
+  //   company: "",
+  //   period:  "",
+  //   quote:   ""
+  // },
+
+];
+
+function testimonialInitials(name) {
+  var parts = String(name).trim().split(/\s+/).filter(Boolean);
+  if (!parts.length) return "";
+  var first = parts[0].charAt(0);
+  var last = parts.length > 1 ? parts[parts.length - 1].charAt(0) : "";
+  return (first + last).toUpperCase();
+}
+
+function renderTestimonials() {
+  var sec = document.getElementById("testimonials");
+  var host = document.getElementById("tcards");
+  if (!sec || !host) return;
+
+  var list = (TESTIMONIALS || []).filter(function (t) {
+    return t && t.name && t.quote;
+  });
+
+  if (!list.length) { sec.hidden = true; return; }
+
+  host.textContent = "";
+
+  list.forEach(function (t) {
+    var card = document.createElement("div");
+    card.className = "tcard";
+
+    var head = document.createElement("div");
+    head.className = "hd";
+
+    var av = document.createElement("div");
+    av.className = "av";
+    av.textContent = testimonialInitials(t.name);
+
+    var meta = document.createElement("div");
+    var who = document.createElement("div");
+    who.className = "who";
+    who.textContent = t.name;
+    meta.appendChild(who);
+
+    var line = [t.role, t.company].filter(Boolean).join(" \u00B7 ");
+    if (line) {
+      var role = document.createElement("div");
+      role.className = "role";
+      role.textContent = line;
+      meta.appendChild(role);
+    }
+
+    head.appendChild(av);
+    head.appendChild(meta);
+    card.appendChild(head);
+
+    if (t.period) {
+      var when = document.createElement("div");
+      when.className = "when";
+      when.textContent = t.period;
+      card.appendChild(when);
+    }
+
+    var q = document.createElement("q");
+    q.textContent = t.quote;
+    card.appendChild(q);
+
+    host.appendChild(card);
+  });
+
+  sec.hidden = false;
+}
+
 var BOOKING_URL = "https://calendly.com/michaelfadaous000/30min";
 
 /* ------------------------------------------------------------------
@@ -839,6 +916,7 @@ function wireCalendlyEvents() {
 
 loadPixel();
 wireCalendlyEvents();
+renderTestimonials();
 
 function wireBooking() {
   if (!BOOKING_URL) return;
