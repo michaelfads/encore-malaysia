@@ -362,14 +362,15 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
   mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27180%27 height=%27180%27%3E%3Cfilter id=%27n%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.85%27 numOctaves=%274%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23n%29%27/%3E%3C/svg%3E")}
 .pricepanel > *{position:relative;z-index:1}
-.pricepanel .k{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.72}
+.paytitle{font-size:26px;font-weight:600;color:#fff;letter-spacing:-.025em;line-height:1.15;margin:0}
+@media (min-width:800px){.paytitle{font-size:34px}}
+.paytitle::after{content:"";display:block;width:88px;height:1px;margin:18px auto 0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent)}
 
 /* the cut, shown rather than described: old price, arrow down, new price */
-.cut{margin-top:22px}
+.cut{margin-top:26px}
 .cut .lbl{display:block;font-size:10.5px;font-weight:700;letter-spacing:.17em;
   text-transform:uppercase;opacity:.6}
-.cut .step2 s{font-size:32px;opacity:.75}
-@media (min-width:800px){.cut .step2 s{font-size:38px}}
 .cut .before s{display:inline-block;margin-top:8px;font-size:27px;font-weight:600;opacity:.62;
   letter-spacing:-.03em;font-variant-numeric:tabular-nums;text-decoration-thickness:2px}
 @media (min-width:800px){.cut .before s{font-size:32px}}
@@ -742,7 +743,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
       <div class="rtot"><span class="n">If bought separately</span><span class="v">RM 24,480</span></div>
 
       <div class="pricepanel">
-        <div class="k">Pay once. Own it.</div>
+        <h3 class="paytitle">One time payment</h3>
 
         <div class="cut">
           <div class="before">
@@ -750,18 +751,13 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
             <s>RM 24,480</s>
           </div>
           <div class="drop" aria-hidden="true"></div>
-          <div class="before step2">
-            <span class="lbl">The whole system, installed</span>
-            <s>RM 9,800</s>
-          </div>
-          <div class="drop" aria-hidden="true"></div>
           <div class="after">
-            <span class="lbl">Founding price</span>
-            <div class="fig">RM 7,800</div>
+            <span class="lbl">The whole system, installed</span>
+            <div class="fig">RM 9,800</div>
           </div>
         </div>
 
-        <div class="save">You save RM 16,680</div>
+        <div class="save">You save RM 14,680</div>
         <p class="getline">Split in two. Half to start, half when it is handed over and working.</p>
         <div class="pchips">
           <span>Paid once</span>
