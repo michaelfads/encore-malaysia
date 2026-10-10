@@ -709,6 +709,18 @@ function loadPixel() {
 /* Calendly talks to the parent page through postMessage. That gives us two
    things the free plan will not: a reliable "the calendar has rendered" signal,
    and a booking confirmation we can count as a conversion on our own domain. */
+/* small helpers so an event is sent at most once per visit */
+function track(name, params) {
+  if (typeof window.fbq === "function") window.fbq("track", name, params || {});
+}
+function firedOnce(key) {
+  try {
+    if (sessionStorage.getItem(key)) return true;
+    sessionStorage.setItem(key, "1");
+  } catch (err) { /* storage blocked, just let it fire */ }
+  return false;
+}
+
 function wireCalendlyEvents() {
   window.addEventListener("message", function (e) {
     if (e.origin.indexOf("calendly.com") === -1) return;
@@ -721,8 +733,22 @@ function wireCalendlyEvents() {
     }
 
     if (e.data.event === "calendly.event_scheduled") {
-      if (window.fbq) fbq("track", "Lead");
+      /* the real conversion: a booking actually completed */
+      if (!firedOnce("mf_schedule")) {
+        track("Schedule", { content_name: "20-min call" });
+      }
       setTimeout(function () { location.href = "thanks.html"; }, 350);
+    }
+  });
+
+  /* intent: someone clicked a booking button. Fires once per visit, so a
+     visitor who taps three CTAs is not counted three times. */
+  document.addEventListener("click", function (e) {
+    var t = e.target;
+    if (!t || typeof t.closest !== "function") return;
+    if (!t.closest("[data-book]")) return;
+    if (!firedOnce("mf_lead")) {
+      track("Lead", { content_name: "Book a call click" });
     }
   });
 
