@@ -94,7 +94,7 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 .nav{border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 86%,transparent);
   backdrop-filter:blur(12px);position:sticky;top:0;z-index:50}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-weight:700;letter-spacing:-.025em;font-size:16px;white-space:nowrap}
+.brand{display:flex;align-items:center;gap:9px;padding:9px 0;text-decoration:none;color:var(--ink);font-weight:700;letter-spacing:-.025em;font-size:16px;white-space:nowrap}
 @media (min-width:480px){.brand{font-size:17px}}
 .brand i{width:26px;height:26px;border-radius:7px;background:var(--accent);display:block;flex:0 0 auto;
   background-image:linear-gradient(135deg,var(--accent) 40%,#32C8AC)}
@@ -519,13 +519,18 @@ details p{padding:0 0 20px;font-size:15.5px;max-width:62ch}
 .ways .way[data-book]:hover::after{transform:translateY(-50%) translateX(4px) rotate(45deg)}
 @media (min-width:640px){.ways .way[data-book]{grid-column:1 / -1}}
 .way b{display:block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
-.way span{display:block;margin-top:6px;color:var(--ink);font-weight:600;font-size:15.5px;word-break:break-word}
+.way span{display:block;margin-top:6px;color:var(--ink);font-weight:600;font-size:15.5px;
+  overflow-wrap:anywhere}
+@media (max-width:400px){.ways .way[href^="mailto"] span{font-size:13.5px;letter-spacing:-.012em}}
 .ph{color:var(--ink-3);font-weight:500}
 
 .stickycta{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
   background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);
   border-top:1px solid var(--line);display:flex;gap:12px;align-items:center}
 .stickycta .txt{font-size:13px;color:var(--ink-2);line-height:1.3}
+@media (max-width:360px){.stickycta{padding-left:12px;padding-right:12px;gap:9px}
+  .stickycta .txt{font-size:11.5px;line-height:1.25}
+  .stickycta .btn{padding:11px 14px;font-size:14px}}
 .stickycta .btn{margin-left:auto;flex:0 0 auto;padding:12px 18px}
 @media (min-width:820px){.stickycta{display:none}}
 body{padding-bottom:80px}
@@ -533,7 +538,8 @@ body{padding-bottom:80px}
 
 footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;color:var(--ink-3)}
 @media (min-width:820px){footer{padding-bottom:40px}}
-.foot{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+.foot{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center}
+.foot a{display:inline-block;padding:11px 0}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
