@@ -733,11 +733,9 @@ function wireCalendlyEvents() {
     }
 
     if (e.data.event === "calendly.event_scheduled") {
-      /* the real conversion: a booking actually completed */
-      if (!firedOnce("mf_schedule")) {
-        track("Schedule", { content_name: "20-min call" });
-      }
-      setTimeout(function () { location.href = "thanks.html"; }, 350);
+      /* thanks.html fires Lead and Schedule: landing there IS the conversion,
+         and a page load is more reliable than a beacon racing a redirect */
+      location.href = "thanks.html";
     }
   });
 
@@ -747,8 +745,10 @@ function wireCalendlyEvents() {
     var t = e.target;
     if (!t || typeof t.closest !== "function") return;
     if (!t.closest("[data-book]")) return;
-    if (!firedOnce("mf_lead")) {
-      track("Lead", { content_name: "Book a call click" });
+    if (!firedOnce("mf_bookingclick")) {
+      if (typeof window.fbq === "function") {
+        fbq("trackCustom", "BookingClick", { content_name: "Book a call click" });
+      }
     }
   });
 
