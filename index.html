@@ -687,24 +687,19 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
    new tab. Left empty, they scroll to the contact section as they do now. */
 var BOOKING_URL = "https://calendly.com/michaelfadaous000/30min";
 
-/* ------------------------------------------------------------------
-   META PIXEL
-   Paste the pixel ID from Events Manager between the quotes. While it
-   is empty nothing loads and no requests are made. Once it is set, the
-   pixel fires PageView here and Lead when a call is actually booked.
-   ------------------------------------------------------------------ */
-var META_PIXEL_ID = "2221382931772537";
-
-function loadPixel() {
-  if (!META_PIXEL_ID) return;
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', META_PIXEL_ID);
-  fbq('track', 'PageView');
-}
+/* Meta pixel, written exactly as Meta publishes it. The ID is a literal
+   rather than a variable so Meta's installation checker, which reads the
+   raw HTML and does not run JavaScript, can actually find it. */
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2221382931772537');
+fbq('track', 'PageView');
 
 /* Calendly talks to the parent page through postMessage. That gives us two
    things the free plan will not: a reliable "the calendar has rendered" signal,
@@ -760,7 +755,6 @@ function wireCalendlyEvents() {
   }, 15000);
 }
 
-loadPixel();
 wireCalendlyEvents();
 
 function wireBooking() {
