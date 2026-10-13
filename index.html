@@ -109,6 +109,10 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
   border:1px solid var(--line);aspect-ratio:16/9;position:relative;
   box-shadow:0 30px 60px -38px rgba(0,0,0,.6)}
 .hero-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border:0}@media (min-width:960px){.hero-video{border-radius:20px}}
+.hero-video .unmute{position:absolute;top:12px;left:12px;z-index:2;border:0;cursor:pointer;
+  background:rgba(0,0,0,.72);color:#fff;font-weight:600;font-size:14px;line-height:1;font-family:inherit;
+  padding:10px 14px;border-radius:999px;backdrop-filter:blur(6px)}
+.hero-video .unmute[hidden]{display:none}
 
 /* figures */
 .figs{display:grid;gap:12px;margin-top:4px}@media (min-width:700px){.figs{grid-template-columns:repeat(3,1fr)}}
@@ -404,10 +408,11 @@ footer{border-top:1px solid var(--line);padding:24px 0 104px;font-size:13.5px;co
     <h1 style="margin-top:14px">Influencer marketing that <span class="mark">keeps selling</span> after I leave.</h1>
 
     <div class="hero-video">
-      <video controls playsinline preload="metadata" poster="intro-poster.jpg"
+      <video id="introVideo" controls playsinline muted autoplay preload="auto" poster="intro-poster.jpg"
              aria-label="Michael Fadaous explains how the creator system works">
         <source src="intro.mp4" type="video/mp4">
       </video>
+      <button type="button" class="unmute" id="unmuteBtn" hidden>&#128266; Tap for sound</button>
     </div>
 
     <p class="lead">Over $100,000 generated through this system, <span class="mark">from a single brand</span>. I install it inside yours, train your team, and hand it over.</p>
@@ -819,6 +824,26 @@ if (document.readyState === "loading") {
 } else {
   wireBooking();
 }
+
+/* Hero video: browsers only allow autoplay when muted, so it starts silent
+   and offers a one-tap unmute that restarts it from the top with sound. */
+(function () {
+  var v = document.getElementById("introVideo");
+  var btn = document.getElementById("unmuteBtn");
+  if (!v || !btn) return;
+  function sync() { btn.hidden = !(v.muted || v.volume === 0); }
+  v.muted = true; /* some browsers ignore the attribute */
+  var p = v.play();
+  if (p && p.catch) p.catch(function () { /* blocked (e.g. low-power mode): controls still work */ });
+  btn.addEventListener("click", function () {
+    v.muted = false;
+    v.currentTime = 0;
+    v.play();
+    sync();
+  });
+  v.addEventListener("volumechange", sync);
+  v.addEventListener("play", sync);
+})();
 </script>
 
 <div class="stickycta">
